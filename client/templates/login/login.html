@@ -28,11 +28,9 @@
 			
 				<div class="login__content login__signin is-active" id="login-content1">
 					<div class="login__fan">
-						<form action="/loginFan" class="login__form" method="post">
-							<input type="text" name="fanName" placeholder="Username">
-							<input type="password" name="fanPassword" placeholder="Password">
-							<input type="submit" value="Sign In">
-						</form>
+						
+						{{> loginFan}}
+
 						<a href="javascript:void(0)" class="login__fan--to-artist">Artist Sign In</a>
 						<a href="#" class="login__fan-forgot">Forget Something?</a>
 					</div><!-- end login fan -->
@@ -49,7 +47,7 @@
 				</div><!-- end login signin -->
 
 				<div class="login__content" id="login-content2">
-					<p class="login__content-copy">ShowStream is a growing <strong>live music</strong> tool driven by artists and their fans. By <a href="#">Joining for free</a> you can enjoy our expanding library of live sets and directly support your favorite musicians.  ShowStream is currently in beta and we truly cherish your feedback.  Join the conversation on <a href="#">twitter</a> or shoot us an <a href="#">email</a> anytime.</p>
+					<p class="login__content-copy">ShowStream is a growing live music tool driven by artists and their fans. By <a href="#">Joining for free</a> you can enjoy our expanding library of live sets and directly support your favorite musicians.  ShowStream is currently in beta and we truly cherish your feedback.  Join the conversation on <a href="#">twitter</a> or shoot us an <a href="#">email</a> anytime.</p>
 				</div>
 
 				<div class="login__content" id="login-content3">
@@ -58,6 +56,10 @@
 
 				<div class="login__content" id="login-content4">
 					<p class="login__content-copy">Artists upload their past sets and put a price on them.  Fans can then buy the uploaded set and 85% of each purchase goes directly into the artist's account. Currently ShowStream only supports audio playback, but after beta it will feature video support, a local show finder, and integration with archive.org's massive library of live music.</p>
+				</div>
+
+				<div class="login__content" id="login-content5">
+					<p class="login__content-copy">Blog coming soon!</p>
 				</div>
 			</div><!-- {{! end login container }} -->
 
@@ -77,13 +79,7 @@
 			<h2 class="join__title">Fan Sign Up</h2>
 			<p class="join__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur ducimus placeat mollitia provident in tempora, ea facere doloremque eos excepturi</p>
 
-			<form action="/registerFan" class="join__form" method="post">
-				<input type="text" name="fanUsername" placeholder="Username" required="true">
-				<input type="password" name="fanPassword" placeholder="Password" required="true">
-				<input type="email" name="fanEmail" placeholder="Email" required="true">
-				<input type="text" name="fanName" placeholder="Display Name" required="true">
-				<input type="submit" value="Create My Account">
-			</form>
+			{{> registerFan}}
 
 			<p class="join__terms">By clicking "Create My Account" I agree to ShowStreams's <a href="#">Terms of Service</a></p>
 		</div>

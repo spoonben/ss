@@ -2,7 +2,7 @@ Template.login.events({
 	//Tab control
 	'click .login__header-nav-item': function(e) {
 		$('.login__header-nav-item').removeClass('is-active');
-		$(e.target).addClass('is-active');
+		$(e.target).parent().addClass('is-active');
 		var tabNumber = $(e.target).parent().attr('id').split('loginTab')[1];
 		$('.login__content').removeClass('is-active');
 		$('#login-content' + tabNumber).addClass('is-active');

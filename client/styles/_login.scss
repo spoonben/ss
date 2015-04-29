@@ -111,16 +111,11 @@
 
 .login__content-copy {
 	color: $w;
-	
 	a{
 		color: $s;
 		&:hover {
 			color: darken($s, 10%);
 		}
-	}
-
-	strong {
-		font-weight: bold;
 	}
 }
 
