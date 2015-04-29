@@ -1,0 +1,69 @@
+/* ===========================================================
+   MIXINS & EXTENDS
+=========================================================== */
+%clearfix {
+    &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    .lte-ie8 & {
+        zoom: 1;
+    }
+}
+
+%hide-text {
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+@mixin transition($prop, $time, $ease: ease) {
+    -webkit-transition: $prop $time $ease;
+    -moz-transition: $prop $time $ease;
+    -o-transition: $prop $time $ease;
+     transition: $prop $time $ease;
+} /*ex: @include transition(color, 0.1s); */
+
+%vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin bp($point) {
+  @if $point == XL {
+    @media (min-width: 1250px) { @content; }
+  }
+  @else if $point == XXL {
+    @media (min-width: 1550px) { @content; }
+  }
+  @else if $point == L {
+    @media (min-width: 1140px) { @content; }
+  }
+  @else if $point == M {
+    @media (min-width: 990px)  { @content; }
+  }
+  @else if $point == S {
+    @media (min-width: 800px)  { @content; }
+  }
+  @else if $point == XS {
+    @media (min-width: 600px)  { @content; }
+  }
+  @else if $point == XXS {
+    @media (min-width: 440px)  { @content; }
+  }
+  @else {
+    @media (min-width: $point) { @content; }
+  }
+}
+
+@mixin boxsize {
+   -moz-box-sizing:    border-box;   /* Firefox 1, probably can drop this */
+   -webkit-box-sizing: border-box;   /* Safari 3-4, also probably droppable */
+    box-sizing:        border-box;   /* Everything else */
+}

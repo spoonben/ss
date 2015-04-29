@@ -1,0 +1,611 @@
+/* ===========================================================
+   Show
+=========================================================== */
+
+.show {
+	background: $p;
+	@include span(3);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url("../images/showbg.jpg");
+	position: relative;
+	margin-bottom: gutter();
+
+	&:hover {
+		.show__actions {
+			display: block;
+		}
+	}
+}
+
+.show__inner {
+	background-color: rgba($p, .5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	@include transition(background-color, .2s);
+
+	&:hover {
+		background-color: rgba($p, .85);
+	}
+}
+
+.show__header {
+	@extend %clearfix;
+	.show__score {
+		float: left;
+	}
+
+	.show__score-icon {
+		color: $s;
+	}
+
+	.show__score-count {
+		color: $w;
+		font-family: $f1;
+		letter-spacing: 1px;
+		font-size: .9em;
+	}
+
+	.show__plays {
+		float: right;
+		margin-top: 2px;
+		color: $w;
+		font-family: $f1;
+		font-size: .9em;
+		letter-spacing: 1px;
+		transition: $t-time;
+		&:hover {
+			cursor: pointer;
+			color: $s;
+		}
+	}
+}
+
+.show__name {
+	@extend %vertical-align;
+	top: 45%;
+	@include full;
+}
+
+.show__title-link {
+	text-align: center;
+	color: $w;
+	font-family: $f1;
+	text-transform: uppercase;
+	font-size: 10px;
+	letter-spacing: 1px;
+
+	span {
+		font-size: 14px;
+		&:last-of-type {
+			margin-top: 15px;
+		}
+	}
+
+	&:hover {
+		color: $s;
+	}
+
+	@include breakpoint($med) {
+		font-size: 12px;
+		span {
+			font-size: 16px;
+		}
+	}
+}
+
+.show__actions {
+	@extend %clearfix;
+	position: absolute;
+	width: 98px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 30px;
+
+	display: none;
+	animation-duration: $t-time;
+}
+
+.show__actions-toggle {
+	float: left;
+	cursor: pointer;
+	color: $w;
+	font-size: 1.6em;
+	margin-right: 15px;
+	transition: $t-time;
+	&:hover {
+		color: $t;
+	}
+}
+
+
+.show__actions-vote {
+	@extend %clearfix;
+	font-size: 1.6em;
+	li {
+		float: left;
+		margin-right: 15px;
+		
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		a {
+			position: relative;
+			color: $w;
+		}
+
+		&:hover {
+			.show__actions-title {
+				display: block;
+			}
+		}
+	}
+}
+
+.show__actions-title {
+	position: absolute;
+	bottom: -20px;
+	left: 50%;
+	display: none;
+
+	&.up {
+		bottom: -22px;	
+	}
+}
+
+.show__actions-title-inner {
+	position: relative;
+	left: -50%;
+	text-transform: uppercase;
+	color: $w;
+	font-family: $f1;
+	font-size: 10px;
+	letter-spacing: 1px;
+}
+
+.show__actions-vote--up  {
+	&:hover {
+		color: $s;
+	}
+}
+
+.show__actions-vote--down {
+	&:hover {
+		color: $alert;
+	}
+}
+
+.show__actions-addto {
+	display: none;
+	font-size: 1.6em;
+	li {
+		float: left;
+		a {
+			color: $w;
+		}
+
+		&:hover {
+			.show__actions-title {
+				display: block;
+			}
+		}
+	}
+}
+
+.show__actions-addto--queue {
+	&:hover {
+		color: $s;
+	}
+}
+
+/* ===========================================================
+   ShowOverlay
+=========================================================== */
+
+.showex {
+	background: $w;
+	width: 100%;
+	@include boxsize;
+	margin: auto;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	@extend %clearfix;
+	overflow: auto;
+	position: fixed;
+	top: 50px;
+	z-index: 2;
+	display: none;
+	animation-duration: .4s;
+}
+
+.showex__inner {
+	position: relative;
+	padding-top: 50px;
+}
+
+//Header
+.showex__header {
+	background: $p;
+	text-align: center;
+	height: 50px;
+	position: fixed;
+	min-width: $min-width;
+	top: 50px;
+	@include full;
+	z-index: 2;
+}
+
+.showex__close {
+	position: absolute;
+	left: 2%;
+	top: 16px;
+	z-index: 1;
+	.showex__close-icon {
+		fill: $w;
+		width: 30px;
+		height: 18px;
+		@include transition(fill, $t-time);
+	}
+	&:hover {
+		.showex__close-icon {
+			fill:$s;
+		}
+	}
+}
+
+.showex__title {
+	@extend %vertical-align;
+}
+
+.showex__info {
+	color: $w;
+	text-transform: uppercase;
+	font-size: 16px;
+	letter-spacing: 1px;
+	margin-bottom: 2px;
+}
+
+.showex__date {
+	color: $w;
+	font-family: $f2;
+	font-size: 12px;
+}
+
+.showex__dl {
+	position: absolute;
+	right: 2%;
+	top: 14px;
+	color: $w;
+	font-size: 1.6em;
+	&:hover {
+		color: $s;
+	}
+}
+
+//Showex Top
+.showex__top {
+	@include full;
+	padding: 20px 2%;
+}
+
+.showex__top-info {
+	float: left;
+}
+
+
+.showex__score {
+	.fa-arrow-up {
+		color: $s;
+	}
+
+	.fa-arrow-down {
+		color: $alert;
+	}
+}
+
+.showex__score-icon {
+	font-size: 2.2em;
+	margin-right: 6px;
+}
+
+.showex__score-count {
+	font-size: 30px;
+	font-family: $f1;
+	font-weight: bold;
+}
+
+.showex__plays {
+	float: left;
+	margin-left: 45px;
+	margin-top: 2px;
+}
+
+.showex__plays-count {
+	font-family: $f2;
+	font-size: 16px;
+}
+
+.showex__actions {
+	$icon-size: 2.5em;
+	$icon-spacing: 22px;
+	
+	float: right;
+
+
+	.showex__actions-item {
+		@extend %clearfix;
+		float: left;
+		font-size: $icon-size;
+		margin-right: $icon-spacing;
+			
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		a {
+			position: relative;
+			color: $p;
+		}
+
+		&:hover {
+			.showex__actions-title {
+				display: block;
+			}
+		}
+	}
+
+	.showex__actions-title {
+		position: absolute;
+		bottom: -15px;
+		left: 50%;
+		display: none;
+
+		&.up {
+			bottom: -19px;	
+		}
+	}
+
+	.showex__actions-title-inner {
+		@extend .show__actions-title-inner;
+		color: $p;
+	}
+
+	.showex__actions-play {
+		&:hover {
+			color: $t;
+		}
+	}
+
+	.showex__actions-vote--up  {
+		&:hover {
+			color: $s;
+		}
+	}
+
+	.showex__actions-vote--down {
+		&:hover {
+			color: $alert;
+		}
+	}
+
+	.showex__actions-profile {
+		&:hover {
+			color: $s;
+		}
+	}
+
+	.showex__actions-addto--queue {
+		&:hover {
+			color: $s;
+		}
+	}
+}
+
+
+//Tabs
+
+.showex__content {
+
+}
+
+.showex__tabs {
+	margin-bottom: 20px;
+	margin-left: 2%;
+}
+
+.showex__tab {
+	display: inline-block;
+	margin-right: 10px;
+	a {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-family: $f1;
+		padding: 10px 20px;	
+		border-radius: $border-radius;
+		color: $w;
+		background: $p;
+		
+		&:hover {
+			background: $s;
+		}
+	}
+
+	&.is-active {
+		a {
+			color: $p;
+			background: $s;
+		}
+	}
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+}
+
+.showex__tab-content {
+	display: none;
+	@extend %clearfix;
+	&.is-active {
+		display: block;
+	}
+}
+
+//Setlist
+.showex__setlist {
+
+}
+
+.showex__track {
+	@include full;
+	padding: 20px 2%;
+	background: $w;
+	cursor: pointer;
+	font-family: $f2;
+	font-size: 18px;
+	&:nth-child(2n+2) {
+		background: $bg;
+	}
+
+	&:hover {
+		background: $p;
+		color: $w;
+	}
+}
+
+.showex__track-time {
+	float: right;
+}
+
+//Comments
+
+.showex__comments {
+	padding-top: 15px;
+}
+
+.showex__comments-list {
+	@include full;
+}
+.showex__comment-form {
+	@extend %clearfix;
+	margin-bottom: 20px;
+}
+
+
+.showex__comment-input {
+	position: relative;
+	@extend %clearfix;
+	input {
+		float: right;
+		border-radius: $border-radius;
+		@include boxsize;
+		border: 2px solid $p;
+		width: calc(100% - 50px);
+		padding: 10px;
+		font-family: $f2;
+		font-size: 1em;
+		color: $p;
+	}
+}
+
+
+.showex__comment-submit {
+	margin-top: 10px;
+	float: right;
+	color: $w;
+	font-family: $f1;
+	background: $p;
+	border: none;
+	border-radius: $border-radius;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 5px 10px;
+	cursor: pointer;
+	transition: .2s;
+	&:hover {
+		color: $p;
+		background: $s;
+	}
+}
+
+.showex__comment {
+	background: $w;
+	padding: 20px 2%;
+	@include full;
+	span.ss-profile {
+		float: left;
+		font-size: 2.6em;
+		margin-left: -5px;
+		margin-top: -14px;
+	}
+
+	&:nth-child(2n+2) {
+		background: $bg;
+	}
+
+	&:hover {
+		.showex__comment-report {
+			display: block;
+		}
+	}
+}
+
+.showex__comment-pic {
+	float: left;
+	height: 40px;
+	width: 40px;
+	fill: $p;
+}
+
+.showex__comment-body {
+	float: right;
+	width: calc(100% - 50px);
+}
+
+.showex__comment-top {
+	@extend %clearfix;
+	margin-bottom: 6px;
+}
+
+.showex__comment-username {
+	font-family: $f1;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 18px;
+	color: $p;
+	float: left;
+	margin-right: 10px;
+}
+
+.showex__comment-time {
+	color: darken($bg, 20%);
+	float: left;
+	font-size: 12px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.showex__comment-report {
+	float: left;
+	display: none;
+	margin-top: 5px;
+	a {
+		color: $alert;
+		font-size: 12px;
+		font-family: $f2;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.showex__comment-text {
+	font-size: 18px;
+	line-height: 1.4em;
+}

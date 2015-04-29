@@ -1,0 +1,264 @@
+$player-height: 43px;
+
+.player {
+	background: $w;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 53px;
+	z-index: 3;
+	min-width: $min-width;
+}
+
+.player__container {
+	@include full;
+	position: relative;
+}
+
+.player__main {
+	position: relative;
+	@include full;
+}
+
+.player__left {
+	float: left;
+}
+
+.player__volume {
+	height: $player-height;
+	width: $player-height;
+	background: $p;
+	position: relative;
+
+	.player__volume-icon {
+		fill: $w;
+		cursor: pointer;
+		width: 32px;
+		height: 32px;
+		margin: 6px 0 0 5px;
+	}
+
+	&:hover {
+		.player__volume-input {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.player {
+	//VOLUME INPUT BASE STYLES
+	input[type="range"] {
+	  -webkit-appearance: none;
+	  width: 130px;
+	  height: 12px;
+	  background: $p;
+	  border: 1px solid $p;
+	  overflow: hidden;
+	}
+
+	input[type="range"]:focus {
+	  outline: none; 
+	}
+
+	input[type="range"]::-ms-track {
+	  width: 100%;
+	  cursor: pointer;
+	  background: transparent;
+	  border-color: transparent;
+	  color: transparent;
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		background: $w;
+		width: 8px;
+		height: 10px;
+		cursor: pointer;
+		position: relative;
+
+		&:after {
+			content: '';
+			width: 200px;
+			height: 12px;
+			background: $s;
+			position: absolute;
+			right: 8px;
+		}
+	}
+
+	input[type="range"]::-moz-range-thumb {
+		background: $w;
+		width: 8px;
+		height: 10px;
+		cursor: pointer;
+	}
+
+	input[type="range"]::-ms-thumb {
+		background: $w;
+		width: 8px;
+		height: 10px;
+		cursor: pointer;
+	}
+
+	// input[type=range]::-webkit-slider-runnable-track {
+	// 	cursor: pointer;
+	// 	background: $s;
+	// 	width: 100%;
+	// 	border: 1px solid $p;
+	// }
+}
+
+.player__volume-input {
+	transition: .2s;
+	position: absolute;
+	left: 0;
+	top: -150px;
+	width: $player-height;
+	height: 150px;
+	background: $w;
+	border: 1px solid $p;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity $t-time;
+}
+
+.player__volume-bar {
+	transform:rotate(-90deg);
+	position: absolute;
+	left: -47px;
+	top: 68px;
+}
+
+.player__body {
+	@include boxsize;
+	height: 43px;
+	width: calc(100% - 86px);
+	float: left;
+	border-top: 1px solid $p;
+	border-bottom: 1px solid $p;
+}
+
+.player__count {
+	float: left;
+	margin-left: 15px;
+	font-family: $f2;
+	color: $p;
+	margin-top: 14px;
+}
+
+.player__body-right {
+	float: right;
+	margin-right: 15px;
+}
+
+.player__info {
+	float: left;
+	text-align: right;
+	margin-right: 15px;
+	margin-top: 8px;
+}
+
+.player__show-title {
+	font-size: 15px;
+	letter-spacing: 1px;
+	font-family: $f1;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.player__show-song {
+	font-size: 12px;
+	font-family: $f2;
+	color: $p;
+}
+
+.player__controls {
+	float: left;
+	margin-top: 8px;
+
+	div {
+		float: left;
+		margin-right: 10px;
+		.fa {
+			font-size: 24px;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	.controls__play {
+		margin-top: -5px;
+		cursor: pointer;
+
+		.controls__play-icon {
+			width: 35px;
+			height: 35px;
+			fill: $p;
+			transition: $t-time;
+			&:hover {
+				fill: $s;
+			}
+		}
+	}
+}
+
+.player__right {
+	float: right;
+}
+
+.player__speaker {
+	height: $player-height;
+	width: $player-height;
+	background: $p;
+	cursor: pointer;
+	transition: $t-time;
+	
+	.player__speaker-icon {
+		fill: $w;
+		width: 32px;
+		height: 32px;
+		margin: 6px 0 0 6px;
+	}
+
+	&:hover {
+		background: $s;
+		.player__speaker-icon {
+			fill: $p;
+		}
+	}
+}
+
+.player__progress {
+	@include full;
+	position: relative;
+	background: $w;
+	height: 10px;
+	border-top: 1px solid $p;
+	cursor: pointer;
+	&:hover {
+		.player__progress-time {
+			display: block;
+		}
+	}
+}
+
+.player__progress-time {
+	display: none;
+	position: fixed;
+	padding: 6px;
+	background: $s;
+	color: $p;
+	border: 1px solid $p;
+	z-index: 4;
+}
+
+.player__progressbar {
+	background: $s;
+	position: absolute;
+	height: 10px;
+	width: 0px;
+
+}

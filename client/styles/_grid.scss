@@ -1,0 +1,26 @@
+$susy: (
+	flow: ltr, // ltr | rtl
+	output: float, // float | isolate
+	math: fluid, // fluid | static (requires column-width)
+	column-width: false, // false | value (40px)
+	container: auto, //length or % | auto
+	container-position: center, // left | center | right | length
+	last-flow: to,
+	columns: 12, 
+	gutters: .33,
+	gutter-position: after, // before | after | split | inside | inside-static
+	global-box-sizing: border-box, // content-box | border-box
+	debug: (
+		image: hide,
+		color: rgba(#66f, .25),
+		output: background, // background | overlay
+		toggle: top right,	
+	),
+	use-custom: (
+		background-image: true,
+		background-options: false,
+		box-sizing: true,
+		clearfix: false,
+		rem: true,
+	)
+);

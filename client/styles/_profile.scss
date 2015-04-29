@@ -1,0 +1,175 @@
+.artist__header {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	@include full;
+}
+
+.artist__header-info {
+	float: left;
+}
+
+.artist__name {
+	text-transform: uppercase;
+	float: left;
+}
+
+.artist__follow {
+	float: left;
+	padding: 10px 15px 8px;
+	background: $p;
+	text-transform: uppercase;
+	font-family: $f1;
+	letter-spacing: 1px;
+	color: $w;
+	border-radius: $border-radius;
+	margin-left: 25px;
+	&:hover {
+		background: $s;
+		color: $p;
+	}
+}
+
+.artist__upload-link {
+	@extend .artist__follow;
+}
+
+.artist__score {
+	float: left;
+	margin-top: -3px;
+	font-size: 2.4em;
+	font-family: $f1;
+	margin-left: 25px;
+
+	.fa-arrow-up {
+		color: $s;
+	}
+
+	.fa-arrow-down {
+		color: $alert;
+	}
+}
+
+.artist__header-controls {
+	float: right;
+}
+
+.artist__main {
+	@include full;
+	margin-bottom: 30px;
+}
+.artist__sidebar {
+	@include span(3);
+}
+
+.artist__photo {
+	@include span(12);
+	background: $p;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: 1px solid $p;
+	margin-bottom: 20px;
+	img {
+		width: 100%;
+	}
+}
+
+.artist__stats {
+	@include full;
+	margin-bottom: 20px;
+}
+
+.artist__stats-item {
+	float: left;
+	margin-right: 15px;
+
+	.artist__stats-title {
+		text-transform: uppercase;
+		font-family: $f1;
+		font-weight: bold;
+		letter-spacing: 1px;
+		font-size: .6em;
+
+		@include breakpoint($med) {
+			font-size: .8em;
+		}
+	}
+
+	span {
+		font-family: $f1;
+		font-size: 1.5em;
+	}
+	&:last-of-type {
+		margin-right: 0;
+	}
+}
+
+.artist__bio {
+	font-size: 1em;
+}
+
+.artist__shows {
+	@include span(9 last);
+	position: relative;
+}
+
+.artist__shows-filter {
+	position: absolute;
+	top: -22px;
+	right: 0;
+	z-index: 1;
+}
+
+.artist__filter-title {
+	padding-bottom: 6px;
+	position: relative;
+	&:hover {
+		.artist__filter-current {
+			color: $s;
+		}
+
+		.artist__filter-list {
+			display: block;
+		}
+	}
+}
+
+.artist__filter-current-txt {
+	font-weight: bold;
+
+}
+
+.artist__filter-list {
+	background: $w;
+	border: 1px solid $p;
+	width: 120px;
+	position: absolute;
+	top: 22px;
+	right: 0;
+	padding: 10px;
+	display: none;
+
+	.artist__filter-list-item {
+		margin-bottom: 5px;
+		a {
+			color: $p;
+			&:hover {
+				color: $s;
+			}
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.artist__shows-list {
+	.show {
+		@include span(3 of 9);
+		&:nth-child(3n+3) {
+			margin-right: 0;
+		}
+	}
+}
+
+

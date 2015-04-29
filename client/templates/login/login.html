@@ -1,0 +1,106 @@
+<template name="login">
+	<div class="page">
+		<div class="login">
+			<div class="login__join">
+				<div class="login__join-title">Join Free</div>
+				<ul class="login__join-list">
+					<li class="login__join-list-item fan"><a href="javascript:void(0)">Fan</a></li>
+					<li class="login__join-list-item artist"><a href="javascript:void(0)">Artist</a></li>
+				</ul>
+			</div><!-- end login join -->
+
+			<div class="login__container">
+				<div class="login__header">
+					<div class="login__header-logo">
+						<svg class="login__header-icon">
+							<use xlink:href="#shape-logo"></use>
+						</svg>
+					</div>
+
+					<ul class="login__header-nav">
+						<li class="login__header-nav-item is-active" id="loginTab1"><a href="javascript:void(0)">Sign In</a></li>
+						<li class="login__header-nav-item" id="loginTab2"><a href="javascript:void(0)">What</a></li>
+						<li class="login__header-nav-item" id="loginTab3"><a href="javascript:void(0)">Why</a></li>
+						<li class="login__header-nav-item" id="loginTab4"><a href="javascript:void(0)">Artists</a></li>
+						<li class="login__header-nav-item" id="loginTab5"><a href="javascript:void(0)">Blog</a></li>
+					</ul><!-- end login nav -->
+				</div><!-- end login header -->
+			
+				<div class="login__content login__signin is-active" id="login-content1">
+					<div class="login__fan">
+						<form action="/loginFan" class="login__form" method="post">
+							<input type="text" name="fanName" placeholder="Username">
+							<input type="password" name="fanPassword" placeholder="Password">
+							<input type="submit" value="Sign In">
+						</form>
+						<a href="javascript:void(0)" class="login__fan--to-artist">Artist Sign In</a>
+						<a href="#" class="login__fan-forgot">Forget Something?</a>
+					</div><!-- end login fan -->
+
+					<div class="login__artist">
+						
+						{{> loginArtist}}
+
+						<a href="javascript:void(0)" class="login__artist--to-fan">Fan Sign In</a>
+						<a href="#" class="login__artist-forgot">Forget Something?</a>
+					</div>
+
+					<div class="login__error"></div>  <!-- PUT ERROR CODE HERE -->
+				</div><!-- end login signin -->
+
+				<div class="login__content" id="login-content2">
+					<p class="login__content-copy">ShowStream is a growing <strong>live music</strong> tool driven by artists and their fans. By <a href="#">Joining for free</a> you can enjoy our expanding library of live sets and directly support your favorite musicians.  ShowStream is currently in beta and we truly cherish your feedback.  Join the conversation on <a href="#">twitter</a> or shoot us an <a href="#">email</a> anytime.</p>
+				</div>
+
+				<div class="login__content" id="login-content3">
+					<p class="login__content-copy">ShowStream exists because artists aren't happy.  Digital music services and the strong arm of the open internet have crippled their potential. Musicians today barely profit from record sales, and streaming goliaths like Spotify are only making the situation worse. ShowStream is a platform rooted deeply in the only aspect of music that can never die--live performances.  Our goal is to take everything great about live music and build the best tool possible for it.</p>
+				</div>
+
+				<div class="login__content" id="login-content4">
+					<p class="login__content-copy">Artists upload their past sets and put a price on them.  Fans can then buy the uploaded set and 85% of each purchase goes directly into the artist's account. Currently ShowStream only supports audio playback, but after beta it will feature video support, a local show finder, and integration with archive.org's massive library of live music.</p>
+				</div>
+			</div><!-- {{! end login container }} -->
+
+			<div class="login__footer">
+				<a href="#" class="login__footer-twitter"><span class="fa fa-twitter"></span> @show_stream</a>
+				<p class="login__footer-copy">&copy; 2015 ShowStream All Rights Reserved</p>
+			</div><!-- {{! end login footer }} -->
+			
+		</div><!-- end login -->
+	</div><!-- end page -->
+
+	<div class="join__fan">
+		<svg class="join__fan-close">
+			<use xlink:href="#shape-close"></use>
+		</svg>
+		<div class="join__container">
+			<h2 class="join__title">Fan Sign Up</h2>
+			<p class="join__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur ducimus placeat mollitia provident in tempora, ea facere doloremque eos excepturi</p>
+
+			<form action="/registerFan" class="join__form" method="post">
+				<input type="text" name="fanUsername" placeholder="Username" required="true">
+				<input type="password" name="fanPassword" placeholder="Password" required="true">
+				<input type="email" name="fanEmail" placeholder="Email" required="true">
+				<input type="text" name="fanName" placeholder="Display Name" required="true">
+				<input type="submit" value="Create My Account">
+			</form>
+
+			<p class="join__terms">By clicking "Create My Account" I agree to ShowStreams's <a href="#">Terms of Service</a></p>
+		</div>
+	</div>
+
+	<div class="join__artist">
+		<svg class="join__artist-close">
+			<use xlink:href="#shape-close"></use>
+		</svg>
+		<div class="join__container">
+			<h2 class="join__title">Artist Sign Up</h2>
+			<p class="join__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur ducimus placeat mollitia provident in tempora, ea facere doloremque eos excepturi</p>
+			
+			<!-- Register Artist Template -->
+			{{> registerArtist}}
+
+			<p class="join__terms">By clicking "Create My Account" I agree to ShowStreams's <a href="#">Terms of Service</a></p>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,79 @@
+<template name="header">
+	<div class="header">
+		<a class="header__logo" href="#">
+			<svg class="header__logo-icon">
+				<use xlink:href="#shape-logo"></use>
+			</svg>
+		</a>
+
+		<div class="header__menu">
+			<ul class="header__nav">
+				<li class="header__nav-item">
+					<a href="#" class="header__nav-link">
+						<svg class="header__nav-icon">
+							<use xlink:href="#shape-explore" />
+						</svg>
+						<span class="header__nav-tt">
+							<span class="header__nav-tt-inner">Explore</span>
+						</span>
+					</a>
+				</li>
+
+				<li class="header__nav-item">
+					<a href="#" class="header__nav-link">
+						<svg class="header__nav-icon">
+							<use xlink:href="#shape-library" />
+						</svg>
+						<span class="header__nav-tt">
+							<span class="header__nav-tt-inner">Library</span>
+						</span>
+					</a>
+				</li>
+
+				<li class="header__nav-item">
+					<a href="#" class="header__nav-link">
+						<svg class="header__nav-icon">
+							<use xlink:href="#shape-feed" />
+						</svg>
+						<span class="header__nav-tt">
+							<span class="header__nav-tt-inner">Feed</span>
+						</span>
+					</a>
+				</li>
+
+				<li class="header__nav-item">
+					<a href="#" class="header__nav-link">
+						<svg class="header__nav-icon">
+							<use xlink:href="#shape-profile" />
+						</svg>
+						<span class="header__nav-tt">
+							<span class="header__nav-tt-inner">Username</span>
+						</span>
+					</a>
+				</li>
+				
+				<li class="header__nav-item">
+					<div class="header__nav-link header__nav-more">
+						<svg class="header__nav-icon">
+							<use xlink:href="#shape-etc" />
+						</svg>
+						<div class="header__nav-submenu">
+							<ul class="header__nav-submenu-list">
+								<li><a href="#setttings">Settings</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">About</a></li>
+								<li><a id="signout" href="#">Sign Out</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<div class="header__search">
+				<a href="#" class="header__search-btn">
+					<span class="fa fa-search"></span>
+				</a>
+			</div>
+		</div>
+	</div><!-- end header -->
+</template>
