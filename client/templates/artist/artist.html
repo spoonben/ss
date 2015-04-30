@@ -13,7 +13,7 @@
 			</div><!-- end artist header  -->
 			<div class="artist__main">
 				<div class="artist__sidebar">
-					<div class="artist__photo" style="background-image: url('/images/showbg.jpg');"></div>
+					<div class="artist__photo" style="background-image: url('/images/placeholder.png');"></div>
 
 					<ul class="artist__stats">
 						<li class="artist__stats-item">
@@ -49,60 +49,7 @@
 					</div>
 
 					<ul class="artist__shows-list">
-						<li class="show">
-							<div class="show__inner">
-								
-								<div class="show__header">
-									<div class="show__score">
-										<span class="show__score-icon fa fa-arrow-up"></span>
-										<span class="show__score-count">4,500,000</span>
-									</div>
-
-									<div class="show__plays">
-										<span class="show__plays-icon fa fa-play-circle-o"></span>
-										<span class="show__plays-count">1,345,234</span>
-									</div>
-									<!-- followers only for artists -->
-
-								</div><!-- end show header -->
-
-								<h3 class="show__name">
-									<a href="#" class="show__title-link">
-										<span class="show__title-artist">The Artist Names</span><br>
-										at<br>
-										<span class="show__title-venue">The Venue Name</span>
-									</a>
-								</h3>
-
-								<h4 class="show__date"></h4>
-
-								<div class="show__actions">
-									<div class="show__actions-toggle">
-										<span class="fa fa-plus"></span>
-									</div>
-
-									<ul class="show__actions-vote">
-										<li>
-											<a href="#" class="show__actions-vote--up">
-												<span class="fa fa-arrow-up"></span>
-												<div class="show__actions-title up">
-													<span class="show__actions-title-inner">Up</span>
-												</div>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="show__actions-vote--down">
-												<span class="fa fa-arrow-down"></span>
-												<div class="show__actions-title">
-													<div class="show__actions-title-inner">Down</div>
-												</div>
-											</a>
-										</li>
-									</ul>
-								</div><!-- end show actions -->
-
-							</div><!-- end show inner -->
-						</li><!-- end show -->
+						{{> showTemplate}}
 					</ul>
 
 				</div><!-- end artist shows -->

@@ -7,7 +7,7 @@
 	@include span(3);
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-image: url("/images/showbg.jpg");
+	background-image: url("/images/placeholder.png");
 	position: relative;
 	margin-bottom: gutter();
 
@@ -58,10 +58,6 @@
 		font-size: .9em;
 		letter-spacing: 1px;
 		transition: $t-time;
-		&:hover {
-			cursor: pointer;
-			color: $s;
-		}
 	}
 }
 
@@ -101,7 +97,7 @@
 .show__actions {
 	@extend %clearfix;
 	position: absolute;
-	width: 98px;
+	width: 102px;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
@@ -124,26 +120,27 @@
 }
 
 
-.show__actions-vote {
+.show__actions {
 	@extend %clearfix;
 	font-size: 1.6em;
-	li {
-		float: left;
-		margin-right: 15px;
-		
-		&:last-of-type {
-			margin-right: 0;
-		}
+}
 
-		a {
-			position: relative;
-			color: $w;
-		}
+.show__actions-item {
+	float: left;
+	margin-right: 15px;
+	
+	&:last-of-type {
+		margin-right: 0;
+	}
 
-		&:hover {
-			.show__actions-title {
-				display: block;
-			}
+	a {
+		position: relative;
+		color: $w;
+	}
+
+	&:hover {
+		.show__actions-title {
+			display: block;
 		}
 	}
 }
@@ -156,6 +153,10 @@
 
 	&.up {
 		bottom: -22px;	
+	}
+
+	&.yella {
+		bottom: -21px;
 	}
 }
 
@@ -178,6 +179,13 @@
 .show__actions-vote--down {
 	&:hover {
 		color: $alert;
+	}
+}
+
+.show__actions-view--profile {
+	margin-top: 2px;
+	&:hover {
+		color: $t;
 	}
 }
 

@@ -11,3 +11,5 @@ iron:router
 accounts-password
 alanning:roles
 audit-argument-checks
+jquery
+sacha:spin
