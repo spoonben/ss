@@ -1,0 +1,115 @@
+<template name="artistTemplate">
+	<div class="page">
+		<div class="artist container">
+			<div class="artist__header">
+				<div class="artist__header-info">
+					<h1 class="artist__name">{{profile.name}}</h1>
+					<a href="#" class="artist__follow">Follow</a>
+					
+					{{>yield "upload-button"}}
+
+					<div class="artist__score"><span class="fa fa-arrow-up"></span>{{profile.score}}</div>
+				</div>
+			</div><!-- end artist header  -->
+			<div class="artist__main">
+				<div class="artist__sidebar">
+					<div class="artist__photo" style="background-image: url('/images/showbg.jpg');"></div>
+
+					<ul class="artist__stats">
+						<li class="artist__stats-item">
+							<div class="artist__stats-title">Shows</div>
+							<span class="artist__stats-shows">45</span>
+						</li>
+
+						<li class="artist__stats-item">
+							<div class="artist__stats-title">Followers</div>
+							<span class="artist__stats-followers">45</span>
+						</li>
+
+						<li class="artist__stats-item">
+							<div class="artist__stats-title">Following</div>
+							<span class="artist__stats-following">112</span>
+						</li>
+					</ul>
+
+					<p class="artist__bio">this is where a mini artist bio would go. kerploosh. anything the artist wants really. punk aint dead.</p>
+				</div><!-- end artists sidebar -->
+
+				<div class="artist__shows">
+					<div class="artist__shows-filter">
+						<div class="artist__filter-title">
+							shows by <span class="artist__filter-current"><span class="artist__filter-current-txt">plays</span> <span class="fa fa-bars"></span></span>
+
+							<ul class="artist__filter-list">
+							<li class="artist__filter-list-item"><a href="#">score</a></li>
+							<li class="artist__filter-list-item"><a href="#">most recent</a></li>
+						</ul>
+
+						</div>						
+					</div>
+
+					<ul class="artist__shows-list">
+						<li class="show">
+							<div class="show__inner">
+								
+								<div class="show__header">
+									<div class="show__score">
+										<span class="show__score-icon fa fa-arrow-up"></span>
+										<span class="show__score-count">4,500,000</span>
+									</div>
+
+									<div class="show__plays">
+										<span class="show__plays-icon fa fa-play-circle-o"></span>
+										<span class="show__plays-count">1,345,234</span>
+									</div>
+									<!-- followers only for artists -->
+
+								</div><!-- end show header -->
+
+								<h3 class="show__name">
+									<a href="#" class="show__title-link">
+										<span class="show__title-artist">The Artist Names</span><br>
+										at<br>
+										<span class="show__title-venue">The Venue Name</span>
+									</a>
+								</h3>
+
+								<h4 class="show__date"></h4>
+
+								<div class="show__actions">
+									<div class="show__actions-toggle">
+										<span class="fa fa-plus"></span>
+									</div>
+
+									<ul class="show__actions-vote">
+										<li>
+											<a href="#" class="show__actions-vote--up">
+												<span class="fa fa-arrow-up"></span>
+												<div class="show__actions-title up">
+													<span class="show__actions-title-inner">Up</span>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="show__actions-vote--down">
+												<span class="fa fa-arrow-down"></span>
+												<div class="show__actions-title">
+													<div class="show__actions-title-inner">Down</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div><!-- end show actions -->
+
+							</div><!-- end show inner -->
+						</li><!-- end show -->
+					</ul>
+
+				</div><!-- end artist shows -->
+			</div><!-- end artist main -->
+		</div><!-- end artist -->
+	</div> <!-- end page -->
+
+	{{>yield "upload-show"}}
+
+</template>

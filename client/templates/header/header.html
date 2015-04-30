@@ -9,7 +9,7 @@
 		<div class="header__menu">
 			<ul class="header__nav">
 				<li class="header__nav-item">
-					<a href="/explore" class="header__nav-link">
+					<a href="{{pathFor 'explore'}}" class="header__nav-link">
 						<svg class="header__nav-icon">
 							<use xlink:href="#shape-explore" />
 						</svg>
@@ -20,7 +20,7 @@
 				</li>
 
 				<li class="header__nav-item">
-					<a href="/library" class="header__nav-link">
+					<a href="{{pathFor 'library'}}" class="header__nav-link">
 						<svg class="header__nav-icon">
 							<use xlink:href="#shape-library" />
 						</svg>
@@ -31,7 +31,7 @@
 				</li>
 
 				<li class="header__nav-item">
-					<a href="/feed" class="header__nav-link">
+					<a href="{{pathFor 'feed'}}" class="header__nav-link">
 						<svg class="header__nav-icon">
 							<use xlink:href="#shape-feed" />
 						</svg>
@@ -42,7 +42,17 @@
 				</li>
 
 				<li class="header__nav-item">
-					<a href="/{{currentUser.username}}" class="header__nav-link">
+					
+						<a href="
+						{{#if isInRole 'Artist'}}
+							/artist/{{currentUser.username}}
+						{{/if}}
+
+						{{#if isInRole 'Fan'}}
+							/fan/{{currentUser.username}}
+						{{/if}}
+						" class="header__nav-link"> <!-- end link -->
+
 						<svg class="header__nav-icon">
 							<use xlink:href="#shape-profile" />
 						</svg>
