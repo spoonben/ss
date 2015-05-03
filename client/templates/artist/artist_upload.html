@@ -11,68 +11,33 @@
 			<div class="upload__content">
 
 				<form action="" class="upload__form">
-					<ul class="upload__progress">
-						<li class="is-active">Select File</li>
-						<li>Set Info</li>
-						<li>Build Setlist</li>
-					</ul>
-					<div class="upload__form-step">
-						<input class="upload__form-file" type="file" accept=".wav,.flac,.aiff">
-						<p class="upload__form-file-desc">Audio files must be in <strong>.flac</strong>, <strong>.wav</strong>, or <strong>.aiff.</strong> These lossless audio formats allow us to deliver the best listening experience possible to your fans.</p>
-						<div class="upload__form-next">Start Upload</div>
+					<div class="upload__form-item">
+						<h3 class="upload__form-title">Select File</h3>
+						<input class="upload__form-file" id="upload-form-file" type="file" accept=".mp3">
+						<p class="upload__form-file-desc">Audio files must be in <strong>.mp3</strong>. ShowStream is just a prototype, and the final product will accept all major formats.</p>
 					</div>
 
-					<div class="upload__form-step">
-						<div class="upload__form-item">
-							<h3 class="upload__form-title">Venue Name</h3>
-							<input type="text" id="upload-show-venue">
-							<p>We are currently building our venue list. If you dont see yours here, that's why.</p>
-						</div>
-						
-						<div class="upload__form-item">
-							<h3 class="upload__form-title">Date of Show</h3>
-							<input type="text" id="upload-show-date">
-						</div>
-						
-						<div class="upload__form-item">
-							<h3 class="upload__form-title">Set Your Price</h3>
-							<div class="upload__form-price-input">
-								<span>$</span>
-								<input type="text" id="upload-show-price" value="0">
-							</div>	
-							<p>How much is this show worth? Between 0-10 dollars, that's for sure.</p>
-						</div>
-
-						<div class="upload__form-prev">Prev</div>
-						<div class="upload__form-next">Build Setlist</div>
+					<div class="upload__form-item">
+						<h3 class="upload__form-title">Venue Name</h3>
+						<input type="text" id="upload-show-venue">
+						<p>We are currently building our venue list. If you dont see yours here, that's why.</p>
+					</div>
+					
+					<div class="upload__form-item">
+						<h3 class="upload__form-title">Date of Show</h3>
+						<input type="text" id="upload-show-date">
+					</div>
+					
+					<div class="upload__form-item">
+						<h3 class="upload__form-title">Set Your Price</h3>
+						<div class="upload__form-price-input">
+							<span>$</span>
+							<input type="text" id="upload-show-price" value="0">
+						</div>	
+						<p>How much is this show worth? Between 0-10 dollars, that's for sure.</p>
 					</div>
 
-					<div class="upload__form-step">
-						<h3 class="upload__form-title">Build Setlist <span>Optional but highly recommended</span></h3>
-						
-						<div class="upload__set">
-							<div class="upload__set-header">
-								<ul>
-									<li>Start</li>
-									<li>End</li>
-									<li>Title</li>
-								</ul>
-							</div>
-
-							<div class="upload__set-list">
-								<div class="upload__set-list-item">
-									<input type="text" class="upload__set-track-start" value="0:00:00" readonly>
-									<input type="text" class="upload__set-track-end" placeholder="0:00:00">
-									<input type="text" class="upload__set-track-title">
-								</div>
-							</div>
-							<span class="upload__set-new-track"><i class="fa fa-plus"></i></span>
-							<span class="upload__set-clear-track">Clear</span>
-						</div>
-
-						<div class="upload__form-prev">Prev</div>
-						<button class="upload__form-next" type="submit">Finish</button>
-					</div>
+					<button class="upload__form-next" type="submit">Finish</button>
 				</form>
 
 			</div><!-- end upload content -->

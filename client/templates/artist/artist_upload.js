@@ -1,28 +1,30 @@
+var audioUrl;
+
+//Template Events
 Template.uploadShow.events({
-	//goes to the next step in the form need to do validation
-	'click .upload__form-next': function(e) {
-		var currentStep = $(e.target).parent();
-		var nextStep = $(e.target).parent().next();
-		var prevStep = $(e.target).parent().prev();
+	//uploads the file to S3
+	'change #upload-form-file': function(e,t) { 
+		var uploader = new Slingshot.Upload('audioUpload');
 
-		//change the progress css
-		$('.upload__progress li').eq($('.upload__form-step').index(nextStep)).addClass('is-active');
-
-		//show the next step
-		currentStep.hide();
-		nextStep.show();
+		uploader.send(document.getElementById('upload-form-file').files[0], function(err, downloadUrl) {
+			if (err) {
+		    // Log service detailed response
+		    console.error('Error uploading', uploader.xhr.response);
+		    alert(err);
+		  }
+		  else {
+		    audioUrl = downloadUrl;
+		  }
+		});
 	},
-	//goes to the previous step in the form
-	'click .upload__form-prev': function(e,t) {
-		var currentStep = $(e.target).parent();
-		var previousStep = $(e.target).parent().prev();
 
-		//de-activate-current step on progressbar
-		$('.upload__progress li').eq($('.upload__form-step').index(currentStep)).removeClass('is-active');
+	'submit .upload__form': function(e,t) {
+		var artistName = Meteor.user().username;
+		var venueName = t.find('#upload-show-venue').value;
+		var showDate = t.find('#upload-show-date').value;
+		var price = t.find('#upload-show-price').value;
 
-		//show the previous step
-		currentStep.hide();
-		previousStep.show();
+		Meteor.call('createShow', artistName, audioUrl, venueName, showDate, price);
 	},
 
 	'click .upload__close': function(e,t) {
@@ -30,7 +32,7 @@ Template.uploadShow.events({
 	}
 });
 
-//Prevents Some Ugly
+//jQuery stuffs
 Template.uploadShow.rendered = function() {
 	$(window).on('resize', function(){
 		$('.upload__inner').css('max-height', window.innerHeight - 203 + "px");
@@ -40,5 +42,15 @@ Template.uploadShow.rendered = function() {
 		if(e.keyCode === 27) {
 			$('.upload').fadeOut();
 		}
+	});
+
+	//date picker
+	var datePicker = new Pikaday({
+		field: $('#upload-show-date')[0],
+		format: 'MMM D YYYY'
+	});
+
+	$('#upload-show-date').on('keydown', function(e){
+		return false;
 	});
 };
