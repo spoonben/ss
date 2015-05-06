@@ -1,3 +1,10 @@
+Template.showTemplate.helpers({
+	//checks if the current user owns this show or not
+	usersShow: function() {
+		return Meteor.user().username === this.artist;
+	}
+});
+
 Template.showTemplate.events({
 	'mouseenter .show': function(e,t) {
 		var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';

@@ -50,7 +50,11 @@ Template.uploadShow.events({
 			imageUrl = Meteor.user().profile.picture;
 		}
 
-		Meteor.call('createShow', artistName, artistDisplay, audioUrl, venueName, showDate, price, imageUrl);
+		if (!audioUrl || venueName === '' || showDate === '' || price === '') {
+			alert('All fields except background image are required.');
+		} else {
+			Meteor.call('createShow', artistName, artistDisplay, audioUrl, venueName, showDate, price, imageUrl);
+		}
 	},
 
 	'click .upload__close': function(e,t) {

@@ -7,6 +7,7 @@ Template.loginFan.events({
 
 		Meteor.loginWithPassword(usernameVal, passwordVal, function(err){
 			if(err) {
+				alert(err.reason);
 				$('#loginFanUsername').val('');
 				$('#loginFanPassword').val('');
 

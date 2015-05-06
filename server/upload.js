@@ -25,6 +25,13 @@ Meteor.methods({
     check(imageUrl, String);
 
     Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'profile.picture': imageUrl } } );
+  },
+
+  changeShowBg: function(showId, imageUrl) {
+    check(showId, String);
+    check(imageUrl, String);
+    
+    Shows.update( { _id:  showId }, { $set: { 'image': imageUrl } }  );
   }
 });
 

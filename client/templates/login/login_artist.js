@@ -9,6 +9,7 @@ Template.loginArtist.events({
 		Meteor.loginWithPassword(usernameVal, passwordVal, function(err){
 			if(err) {
 				//throw error code
+				alert(err.reason);
 				$('#loginArtistUsername').val('');
 				$('#loginArtistPassword').val('');
 			} else if (Roles.userIsInRole(Meteor.userId(), 'Artist') === true) {
