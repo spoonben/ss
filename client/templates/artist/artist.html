@@ -4,7 +4,7 @@
 			<div class="artist__header">
 				<div class="artist__header-info">
 					<h1 class="artist__name">{{profile.name}}</h1>
-					<a href="#" class="artist__follow">Follow</a>
+					{{>yield "follow-button"}}
 					
 					{{>yield "upload-button"}}
 
@@ -13,7 +13,9 @@
 			</div><!-- end artist header  -->
 			<div class="artist__main">
 				<div class="artist__sidebar">
-					<div class="artist__photo" style="background-image: url('/images/placeholder.png');"></div>
+					<div class="artist__photo" style="background-image: url('{{profile.picture}}');">
+						{{>yield "change-profPic"}}
+					</div>
 
 					<ul class="artist__stats">
 						<li class="artist__stats-item">
@@ -49,7 +51,17 @@
 					</div>
 
 					<ul class="artist__shows-list">
-						{{> showTemplate}}
+						{{#if shows.count}}
+							
+							{{#each shows}}
+								{{> showTemplate}}
+							{{/each}}
+
+						{{else}}
+								
+							<p class="artist__shows-none">{{profile.name}} has no live material on ShowStream.  <a href="#">Nudge them</a> to upload something.</p>
+
+						{{/if}}
 					</ul>
 
 				</div><!-- end artist shows -->

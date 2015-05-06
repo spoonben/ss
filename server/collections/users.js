@@ -16,6 +16,7 @@ Meteor.methods({
 			profile: {
 				name: name,
 				score: 0,
+				picture: '/images/placeholder.png',
 				likes: [],
 				followers: [],
 				following: []
@@ -42,6 +43,7 @@ Meteor.methods({
 			password: password,
 			profile: {
 				name: name,
+				picture: '/images/placeholder.png',
 				likes: [],
 				followers: [],
 				following: []

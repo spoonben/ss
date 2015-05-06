@@ -1,15 +1,17 @@
-var audioUrl;
+var audioUrl; // s3 audio url
+var imageUrl; // s3 img url
+
 
 //Template Events
 Template.uploadShow.events({
-	//uploads the file to S3
-	'change #upload-form-file': function(e,t) { 
-		var uploader = new Slingshot.Upload('audioUpload');
+	//uploads the audio file to S3
+	'change #upload-form-audio': function(e,t) { 
+		var audioUploader = new Slingshot.Upload('audioUpload');
 
-		uploader.send(document.getElementById('upload-form-file').files[0], function(err, downloadUrl) {
+		audioUploader.send(document.getElementById('upload-form-audio').files[0], function(err, downloadUrl) {
 			if (err) {
 		    // Log service detailed response
-		    console.error('Error uploading', uploader.xhr.response);
+		    // console.log('Error uploading' + audioUploader.xhr.response);
 		    alert(err);
 		  }
 		  else {
@@ -18,19 +20,46 @@ Template.uploadShow.events({
 		});
 	},
 
+	//uploads the show picture to S3
+	'change #upload-form-image': function(e,t) { 
+		var imageUploader = new Slingshot.Upload('showImgUpload');
+
+		imageUploader.send(document.getElementById('upload-form-image').files[0], function(err, downloadUrl) {
+			if (err) {
+		    // Log service detailed response
+		    // console.log('Error uploading' + imageUploader.xhr.response);
+		    alert(err);
+		  }
+		  else {
+		    imageUrl = downloadUrl;
+		  }
+		});
+	},
+
 	'submit .upload__form': function(e,t) {
+		e.preventDefault();
+
 		var artistName = Meteor.user().username;
+		var artistDisplay = Meteor.user().profile.name;
 		var venueName = t.find('#upload-show-venue').value;
 		var showDate = t.find('#upload-show-date').value;
 		var price = t.find('#upload-show-price').value;
 
-		Meteor.call('createShow', artistName, audioUrl, venueName, showDate, price);
+		//if no show image is selected use the artist profile picture
+		if(!imageUrl) {
+			imageUrl = Meteor.user().profile.picture;
+		}
+
+		Meteor.call('createShow', artistName, artistDisplay, audioUrl, venueName, showDate, price, imageUrl);
 	},
 
 	'click .upload__close': function(e,t) {
 		t.$('.upload').fadeOut();
 	}
 });
+
+//Template Helpers
+
 
 //jQuery stuffs
 Template.uploadShow.rendered = function() {
@@ -45,9 +74,9 @@ Template.uploadShow.rendered = function() {
 	});
 
 	//date picker
-	var datePicker = new Pikaday({
+	var datePicker = new Pikaday({	
 		field: $('#upload-show-date')[0],
-		format: 'MMM D YYYY'
+		format: 'l'
 	});
 
 	$('#upload-show-date').on('keydown', function(e){

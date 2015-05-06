@@ -63,6 +63,7 @@
 
 .artist__photo {
 	@include span(12);
+	position: relative;
 	background: $p;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -70,6 +71,43 @@
 	margin-bottom: 20px;
 	img {
 		width: 100%;
+	}
+
+	&:hover {
+		.profile__photo--change {
+			display: block;
+		}
+	}
+}
+
+.profile__photo--change {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+	background: $s;
+	font-family: $f1;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 1px;
+	padding: 10px 15px 8px;
+	transition: background-color $t-time;
+
+	input[type="file"] {
+		position: fixed;
+		top: -1000px;
+	}
+
+	span {
+		color: $w;
+	}
+
+	&:hover {
+		background: darken($s, 20%);
+		span {
+			color: $p;
+		}
 	}
 }
 
@@ -89,7 +127,7 @@
 		letter-spacing: 1px;
 		font-size: .6em;
 
-		@include breakpoint($med) {
+		@include breakpoint(1200px) {
 			font-size: .8em;
 		}
 	}
@@ -168,6 +206,15 @@
 		@include span(3 of 9);
 		&:nth-child(3n+3) {
 			margin-right: 0;
+		}
+	}
+}
+
+.artist__shows-none {
+	a {
+		color: $s;
+		&:hover {
+			color: darken($s, 20%);
 		}
 	}
 }

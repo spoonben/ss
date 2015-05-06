@@ -12,15 +12,15 @@
 
 				<form action="" class="upload__form">
 					<div class="upload__form-item">
-						<h3 class="upload__form-title">Select File</h3>
-						<input class="upload__form-file" id="upload-form-file" type="file" accept=".mp3">
+						<h3 class="upload__form-title">Select Audio File</h3>
+						<input class="upload__form-file" id="upload-form-audio" type="file" accept=".mp3">
 						<p class="upload__form-file-desc">Audio files must be in <strong>.mp3</strong>. ShowStream is just a prototype, and the final product will accept all major formats.</p>
 					</div>
 
 					<div class="upload__form-item">
 						<h3 class="upload__form-title">Venue Name</h3>
 						<input type="text" id="upload-show-venue">
-						<p>We are currently building our venue list. If you dont see yours here, that's why.</p>
+						<p>We are currently building our venue list. You may not see yours here.</p>
 					</div>
 					
 					<div class="upload__form-item">
@@ -35,6 +35,12 @@
 							<input type="text" id="upload-show-price" value="0">
 						</div>	
 						<p>How much is this show worth? Between 0-10 dollars, that's for sure.</p>
+					</div>
+
+					<div class="upload__form-item">
+						<h3 class="upload__form-title">Choose a Background Image</h3>
+						<input type="file" class="upload__form-file" id="upload-form-image" accept=".jpg, .png, .gif">
+						<p class="upload__form-file-desc">Files must be <strong>less than 500kb</strong> and in <strong>.jpg</strong>, <strong>.png</strong>, or <strong>.gif</strong></p>
 					</div>
 
 					<button class="upload__form-next" type="submit">Finish</button>

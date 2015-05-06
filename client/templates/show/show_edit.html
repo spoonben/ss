@@ -1,0 +1,53 @@
+<template name="editShow">
+	<div class="page">
+		<div class="show__edit container">
+			<a href="#" class="show__edit-back">Cancel Edit</a>
+			<h1 class="show__edit-title">Edit Show</h1>
+			<form class="show__edit-form">
+				<div class="show__edit-item">
+					<h2 class="show__edit-subtitle">Venue Name</h2>
+					<input type="text" id="show-edit-venue" placeholder="" value="{{venue}}">
+				</div>
+				
+				<div class="show__edit-item">
+					<h2 class="show__edit-subtitle">Show Date</h2>
+					<input type="text" id="show-edit-date" value="{{date}}">	
+				</div>
+				
+				<div class="show__edit-item">
+					<h2 class="show__edit-subtitle">Price</h2>
+					<div class="show__edit-price">
+						<span>$</span>
+						<input type="text" id="show-edit-price" value="{{price}}">
+					</div>	
+				</div>
+
+				<div class="show__edit-item">
+					<h2 class="show__edit-subtitle">Background Image</h2>
+					<input type="file" id="show-edit-image">
+				</div>
+
+				<input type="submit" value="Save Changes">
+			</form>
+			<a href="#" class="show__edit-deleteBtn">Delete Show Forever</a>
+		</div><!-- end show edit -->
+	</div> <!-- end page -->
+
+	<div class="delete">
+		<div class="delete__inner">
+			<div class="delete__header">
+				<svg class="delete__close">
+					<use xlink:href="#shape-close"></use>
+				</svg>
+				<h2 class="delete__header-title">Delete Show</h2>
+			</div>
+
+			<div class="delete__content">
+				<form class="delete__form">
+					<p>So you want to delete your show. We get it. By clicking the delete button below you will forever remove this show from ShowStream.</p>
+					<input type="submit" value="Delete Show Forever">
+				</form>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,16 +1,16 @@
 <template name="showTemplate">
-	<li class="show">
+	<li class="show" style="background-image: url('{{image}}');">
 		<div class="show__inner">
 			
 			<div class="show__header">
 				<div class="show__score">
 					<span class="show__score-icon fa fa-arrow-up"></span>
-					<span class="show__score-count">4,500,000</span>
+					<span class="show__score-count">{{score}}</span>
 				</div>
 
 				<div class="show__plays">
 					<span class="show__plays-icon fa fa-play-circle-o"></span>
-					<span class="show__plays-count">1,345,234</span>
+					<span class="show__plays-count">{{plays}}</span>
 				</div>
 				<!-- followers only for artists -->
 
@@ -18,20 +18,19 @@
 
 			<h3 class="show__name">
 				<a href="#" class="show__title-link">
-					<span class="show__title-artist">The Artist Names</span><br>
+					<span class="show__title-artist">{{artistDisplay}}</span><br>
 					at<br>
-					<span class="show__title-venue">The Venue Name</span>
+					<span class="show__title-venue">{{venue}}</span><br>
+					<span class="show__title-date">{{date}}</span>
 				</a>
 			</h3>
-
-			<h4 class="show__date"></h4>
 
 			<ul class="show__actions">
 				<li class="show__actions-item">
 					<a href="#" class="show__actions-view--profile">
 						<span class="fa fa-share-square-o"></span>
 						<div class="show__actions-title yella">
-							<span class="show__actions-title-inner">Artist</span>
+							<span class="show__actions-title-inner">{{artist}}</span>
 						</div>
 					</a>
 				</li>
@@ -40,20 +39,24 @@
 					<a href="#" class="show__actions-vote--up">
 						<span class="fa fa-arrow-up"></span>
 						<div class="show__actions-title up">
-							<span class="show__actions-title-inner">Up</span>
+							<span class="show__actions-title-inner">Upvote</span>
 						</div>
 					</a>
 				</li>
-				<li class="show__actions-item">
-					<a href="#" class="show__actions-vote--down">
+				<!-- <li class="show__actions-item">
+					<a href="#" class="show__actions-votedown">
 						<span class="fa fa-arrow-down"></span>
 						<div class="show__actions-title">
 							<div class="show__actions-title-inner">Down</div>
 						</div>
 					</a>
-				</li>
+				</li> -->
 			</ul><!-- end show actions -->
 
 		</div><!-- end show inner -->
+
+		<div class="show__edit-link">
+			<a href="/shows/{{_id}}/edit">Edit</a>
+		</div>
 	</li><!-- end show -->
 </template>

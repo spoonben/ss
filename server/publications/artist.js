@@ -7,5 +7,5 @@ Meteor.publish('artist', function(artistName) {
 Meteor.publish('artistShows', function(artistName) {
 	check(artistName, String);
 
-	return Shows.find({artistName: artistName});
+	return Shows.find({artist: artistName});
 });
