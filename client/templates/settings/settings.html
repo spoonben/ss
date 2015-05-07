@@ -1,0 +1,45 @@
+<template name="settings">
+	<div class="page">
+		<div class="settings container">
+			<h1 class="settings__title">Settings</h1>
+			<form class="settings__form">
+				<div class="settings__item">
+					<h2 class="settings__subtitle">Display Name</h2>
+					<input type="text" id="settings-name" placeholder="Display Name" value="{{profile.name}}">
+				</div>
+				
+				<div class="settings__item">
+					<h2 class="settings__subtitle">Change Email</h2>
+					<input type="text" id="settings-email" placeholder="Change Email Address" value="{{emails[0].address}}">	
+				</div>
+
+				<div class="settings__item">
+					<h2 class="settings__subtitle">Blast</h2>
+					<input type="text" id="settings-email" placeholder="Change Blast" value="{{profile.blast}}">
+					<textarea id="settings-blast" placeholder="Change Blast" value="{{profile.blast}}"></textarea>
+				</div>
+			
+				<input type="submit" value="Save Changes">
+			</form>
+			<a href="#" class="settings__deleteBtn">Delete Account Forever</a>
+		</div><!-- end settings -->
+	</div> <!-- end page -->
+
+	<div class="delete">
+		<div class="delete__inner">
+			<div class="delete__header">
+				<svg class="delete__close">
+					<use xlink:href="#shape-close"></use>
+				</svg>
+				<h2 class="delete__header-title">Delete Account</h2>
+			</div>
+
+			<div class="delete__content">
+				<form class="delete__form">
+					<p>So you want to delete your account. We get it. By clicking the delete button below you will forever remove yourself from ShowStream.</p>
+					<input type="submit" value="Delete Account Forever">
+				</form>
+			</div>
+		</div>
+	</div>
+</template>
