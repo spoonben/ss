@@ -54,6 +54,8 @@ Template.uploadShow.events({
 			alert('All fields except background image are required.');
 		} else {
 			Meteor.call('createShow', artistName, artistDisplay, audioUrl, venueName, showDate, price, imageUrl);
+			$('.upload').fadeOut();
+			$(t.find('.upload__form')).trigger('reset');
 		}
 	},
 
@@ -80,7 +82,8 @@ Template.uploadShow.rendered = function() {
 	//date picker
 	var datePicker = new Pikaday({	
 		field: $('#upload-show-date')[0],
-		format: 'l'
+		format: 'l',
+		yearRange: [1950, 2016]
 	});
 
 	$('#upload-show-date').on('keydown', function(e){

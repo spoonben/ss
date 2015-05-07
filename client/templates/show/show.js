@@ -14,6 +14,17 @@ Template.showTemplate.events({
 		$showActions.addClass(animationName).one(animationEnd, function() {
 			$showActions.removeClass(animationName);
 		});
+	},
+
+	'click .show__title-link': function(e,t) {
+		var playerAudio = document.getElementById('player__audio');
+		playerAudio.src = this.audio;
+		$('.player__show-artist').text(this.artistDisplay);
+		$('.player__show-venue').text(this.venue);
+		$('.player__show-date').text(this.date);
+		$('.player__info').fadeIn();
+		$('.player__count').fadeIn();
+		$('.player__progress').show();
 	}
 });
 

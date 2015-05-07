@@ -5,7 +5,7 @@ $player-height: 43px;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height: 53px;
+	height: 43px;
 	z-index: 3;
 	min-width: $min-width;
 }
@@ -140,6 +140,7 @@ $player-height: 43px;
 }
 
 .player__count {
+	display: none;
 	float: left;
 	margin-left: 15px;
 	font-family: $f2;
@@ -153,6 +154,7 @@ $player-height: 43px;
 }
 
 .player__info {
+	display: none;
 	float: left;
 	text-align: right;
 	margin-right: 15px;
@@ -167,7 +169,7 @@ $player-height: 43px;
 	text-transform: uppercase;
 }
 
-.player__show-song {
+.player__show-date {
 	font-size: 12px;
 	font-family: $f2;
 	color: $p;
@@ -233,9 +235,11 @@ $player-height: 43px;
 
 .player__progress {
 	@include full;
-	position: relative;
+	position: absolute;
+	display: none;
 	background: $w;
 	height: 10px;
+	top: -10px;
 	border-top: 1px solid $p;
 	cursor: pointer;
 	&:hover {
