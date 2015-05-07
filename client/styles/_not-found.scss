@@ -1,0 +1,15 @@
+.not-found__title {
+	font-size: 5em;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.not-found__copy {
+	text-align: center;
+	a {
+		color: darken($s, 15%);
+		&:hover {
+			color: $s;
+		}
+	}
+}
