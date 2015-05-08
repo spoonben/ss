@@ -28,7 +28,7 @@ Template.showTemplate.events({
 		$('.player__progress').show();
 
 		//increment play count by one
-		Meteor.call('incPlayCount', this._id);
+		Meteor.call('incPlayCount', this._id, this.artist);
 	},
 
 	'click .show__actions-vote--up': function(e,t) {
@@ -39,11 +39,11 @@ Template.showTemplate.events({
 });
 
 Template.showTemplate.rendered = function() {
-	$(window).on('resize', function() {
-  	var picWidth = $('.artist__photo').width();
-  	var showWidth = $('.show').width();
+	// $(window).on('resize', function() {
+ //  	var picWidth = $('.artist__photo').width();
+ //  	var showWidth = $('.show').width();
 
-  	$('.artist__photo').css('height', picWidth + 'px');
-    $('.show').css({'height':showWidth+'px'});
-  }).resize();
+ //  	$('.artist__photo').css('height', picWidth + 'px');
+ //    $('.show').css({'height':showWidth+'px'});
+ //  }).resize();
 };

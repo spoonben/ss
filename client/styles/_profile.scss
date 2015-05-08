@@ -204,6 +204,8 @@
 .artist__shows-list {
 	.show {
 		@include span(3 of 9);
+		padding-bottom: span(3 of 9);
+		margin-bottom: gutter(9);
 		&:nth-child(3n+3) {
 			margin-right: 0;
 		}

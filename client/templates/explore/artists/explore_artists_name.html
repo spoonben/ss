@@ -1,0 +1,38 @@
+<template name="exploreArtistsName">
+	<div class="page">
+		<div class="explore container">
+			<div class="explore__header">
+				<div class="explore__left">
+					<ul class="explore__nav">
+						<li class="explore__nav-item is-active"><a href="{{pathFor 'exploreArtists'}}">Artists</a></li>
+						<li class="explore__nav-item"><a href="{{pathFor 'exploreShows'}}">Shows</a></li>
+					</ul>
+
+					<div class="explore__filter">
+						<div class="explore__filter-title">
+							artists by <span class="explore__filter-current"><span class="explore__filter-current-txt">name</span> <span class="fa fa-bars"></span></span>
+
+							<ul class="explore__filter-list">
+								<li class="explore__filter-list-item"><a href="/explore/artists/top">score</a></li>
+								<li class="explore__filter-list-item"><a href="/explore/artists/plays">plays</a></li>
+							<!-- 	<li class="explore__filter-list-item"><a href="#">newest</a></li> -->
+							</ul>
+
+						</div>						
+					</div><!-- end explore filter -->
+				</div>
+
+				<h1 class="explore__title">Explore</h1>
+			</div><!-- end header -->
+
+			<div class="explore__content">
+				<ul class="explore__list">
+					{{#each artists}}
+						{{> artistBlock}}
+					{{/each}}
+				</ul>
+			</div>		
+	
+		</div><!-- end explore -->
+	</div><!-- end page -->
+</template>

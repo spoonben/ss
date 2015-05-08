@@ -5,6 +5,8 @@
 .show {
 	background: $p;
 	@include span(3);
+	height: 0;
+	padding-bottom: span(3);
 	background-size: cover;
 	background-repeat: no-repeat;
 	// background-image: url("/images/placeholder.png");
@@ -19,6 +21,10 @@
 		.show__edit-link {
 			display: block;
 		}
+	}
+
+	&:nth-child(4n+4) {
+		margin-right: 0;
 	}
 }
 

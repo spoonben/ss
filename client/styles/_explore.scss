@@ -1,0 +1,182 @@
+.explore {
+	@extend .library;
+}
+
+.explore__header {
+	@include full;
+}
+
+.explore__nav	{
+	@extend .library__nav;
+	float: none;
+}
+
+.explore__nav-item {
+	@extend .library__nav-item;
+}
+
+.explore__title {
+	@extend .library__title;
+}
+.explore__left {
+	float: left;
+}
+.explore__filter {
+	float: left;
+	margin-top: 12px
+}
+
+.explore__filter-title {
+	padding-bottom: 6px;
+	position: relative;
+	font-family: $f1;
+	&:hover {
+		.explore__filter-current {
+			color: $s;
+		}
+
+		.explore__filter-list {
+			display: block;
+		}
+	}
+}
+
+.explore__filter-current-txt {
+	font-weight: bold;
+
+}
+
+.explore__filter-list {
+	background: $w;
+	border: 1px solid $p;
+	width: 90px;
+	position: absolute;
+	top: 22px;
+	right: 0;
+	padding: 10px;
+	display: none;
+	z-index: 2;
+
+	.explore__filter-list-item {
+		margin-bottom: 5px;
+		a {
+			color: $p;
+			&:hover {
+				color: $s;
+			}
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.explore__content {
+	@include full;
+	margin-top: 6px;
+}
+
+.explore__list {
+	@include full;
+}
+
+//ARTIST EXPLORE BLOCK
+.artistBlock {
+	background: $p;
+	@include span(3);
+	height: 0;
+	padding-bottom: span(3);
+	background-size: cover;
+	background-repeat: no-repeat;
+	// background-image: url("/images/placeholder.png");
+	position: relative;
+	margin-bottom: gutter();
+
+	&:hover {
+		.artistBlock__actions {
+			display: block;
+		}
+
+		.artistBlock__edit-link {
+			display: block;
+		}
+	}
+
+	&:nth-child(4n+4) {
+		margin-right: 0;
+	}
+}
+
+.artistBlock__inner {
+	background-color: rgba($p, .5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	@include transition(background-color, .2s);
+
+	&:hover {
+		background-color: rgba($p, .85);
+	}
+}
+
+.artistBlock__header {
+	@extend %clearfix;
+	.artistBlock__score {
+		float: left;
+	}
+
+	.artistBlock__score-icon {
+		color: $s;
+	}
+
+	.artistBlock__score-count {
+		color: $w;
+		font-family: $f1;
+		letter-spacing: 1px;
+		font-size: .9em;
+	}
+
+	.artistBlock__plays {
+		float: right;
+		margin-top: 2px;
+		color: $w;
+		font-family: $f1;
+		font-size: .9em;
+		letter-spacing: 1px;
+		transition: $t-time;
+	}
+}
+
+.artistBlock__link {
+	&:hover {
+		.artistBlock__title {
+			transition: $t-time;
+			color: $s;
+		}
+	}
+}
+
+
+.artistBlock__title {
+	text-align: center;
+	color: $w;
+	font-family: $f1;
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 1px;
+	@extend %vertical-align;
+	top: 45%;
+	@include full;
+
+	@include breakpoint($med) {
+		font-size: 16px;
+	}
+}
+
+
+
+

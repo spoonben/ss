@@ -1,5 +1,6 @@
 .library {
 	margin-top: 30px;
+	padding-bottom: 90px;
 }
 
 .library__header {
@@ -74,10 +75,7 @@
 
 	&.is-active {
 		background: $p;
-		+ .library__artist-shows {
-			display: block;
-		}
-		
+
 		.library__list-item-title {
 			color: $w;
 		}

@@ -1,0 +1,28 @@
+<template name="artistBlock">
+	<li class="artistBlock" style="background-image: url('{{profile.picture}}');">
+		<a href="/artist/{{username}}" class="artistBlock__link">
+			<div class="artistBlock__inner">
+			
+			<div class="artistBlock__header">
+				<div class="artistBlock__score">
+					<span class="artistBlock__score-icon fa fa-arrow-up"></span>
+					<span class="artistBlock__score-count">{{profile.score}}</span>
+				</div>
+
+				<div class="artistBlock__plays">
+					<span class="artistBlock__plays-icon fa fa-play-circle-o"></span>
+					<span class="artistBlock__plays-count">{{profile.plays}}</span>
+				</div>
+				<!-- followers only for artists -->
+
+			</div><!-- end artistBlock header -->
+
+
+				<h2 class="artistBlock__title">
+					{{profile.name}}
+				</h2>
+
+		</div><!-- end artistBlock inner -->
+		</a>
+	</li><!-- end artistBlock -->
+</template>
