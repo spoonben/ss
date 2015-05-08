@@ -1,0 +1,117 @@
+.library {
+	margin-top: 30px;
+}
+
+.library__header {
+
+}
+
+.library__nav	{
+	float: left;
+}
+
+.library__nav-item {
+	float: left;
+	margin-right: 20px;
+	
+
+	a {
+		font-family: $f1;
+		text-transform: uppercase;
+		color: $w;
+		font-size: 12px;
+		letter-spacing: 1px;
+		border-radius: $border-radius;
+		padding: 10px 15px 8px;
+		transition: $t-time;
+		background: $p;
+
+		&:hover {
+			background: $s;
+			color: $p;
+		}
+	}
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+	&.is-active {
+		a {
+			background: $s;
+			color: $p;
+		}
+	}
+}
+
+.library__title {
+	float: right;
+	text-transform: uppercase;
+	margin-top: -4px;
+}
+
+.library__artists {
+	@include full;
+	margin-top: 22px;
+}
+
+.library__list-item {
+	@include full;
+}
+
+.library__list-item-link {
+	@include full;
+	background: $bg;
+	padding: 25px 2% 22px;
+	width: 100%;
+	transition: $t-time;
+	&:hover {
+		background: $p;
+		.library__list-item-title {
+			color: $w;
+		}
+	}
+
+	&.is-active {
+		background: $p;
+		+ .library__artist-shows {
+			display: block;
+		}
+		
+		.library__list-item-title {
+			color: $w;
+		}
+
+		&:hover {
+			background: $alert;
+			.library__list-item-title {
+				color: $p;
+			}
+		}
+	}
+}
+
+.library__list-item-title {
+	float: left;
+	@include boxsize;
+	color: $p;
+}
+
+.library__artist-shows {
+	@include full;
+	padding: 30px 2% 0;
+	background: $w;
+	display: none;
+}
+
+.library__copy {
+	@include full;
+	padding: 20px 2%;
+
+	a {
+		color: darken($s, 15%);
+		&:hover {
+			color: $s;
+		}
+	}
+}

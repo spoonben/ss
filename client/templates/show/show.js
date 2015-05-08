@@ -19,12 +19,22 @@ Template.showTemplate.events({
 	'click .show__title-link': function(e,t) {
 		var playerAudio = document.getElementById('player__audio');
 		playerAudio.src = this.audio;
+		//load the show into the player
 		$('.player__show-artist').text(this.artistDisplay);
 		$('.player__show-venue').text(this.venue);
 		$('.player__show-date').text(this.date);
 		$('.player__info').fadeIn();
 		$('.player__count').fadeIn();
 		$('.player__progress').show();
+
+		//increment play count by one
+		Meteor.call('incPlayCount', this._id);
+	},
+
+	'click .show__actions-vote--up': function(e,t) {
+		e.preventDefault();
+
+		Meteor.call('upvote', this._id);
 	}
 });
 

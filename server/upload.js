@@ -10,6 +10,7 @@ Meteor.methods({
 
 		Shows.insert({
 			artist: artistName,
+      artistId: Meteor.userId(),
       artistDisplay: artistDisplay,
 			venue: venueName,
 			date: showDate,
@@ -17,7 +18,8 @@ Meteor.methods({
 			audio: audioUrl,
 			image: imageUrl,
 			plays: 0,
-			score: 0
+			score: 0,
+      upvoters: []
 		});
 	},
 

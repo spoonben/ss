@@ -1,5 +1,8 @@
-Meteor.publish('user', function(userName) {
-	check(userName, String);
+Meteor.publish('currentUser', function() {
 
-	Meteor.users.findOne({userName: userName});
+	return Meteor.users.find(this.userId);
+});
+
+Meteor.publish('artists', function() {
+	return Meteor.users.find({roles: ['Artist']});
 });

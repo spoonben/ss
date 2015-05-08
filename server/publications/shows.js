@@ -3,3 +3,7 @@ Meteor.publish('show', function(showId) {
 
 	return Shows.find({_id: showId});
 });
+
+Meteor.publish('likedShows', function() {
+	return Shows.find({upvoters: { $in: [this.userId] } });
+});

@@ -1,3 +1,43 @@
 <template name="libraryTemplate">
-	<p>Library Template</p>
+	<div class="page">
+		<div class="library">
+			<div class="library__header container">
+				<ul class="library__nav">
+					<li class="library__nav-item is-active"><a href="#">Artists</a></li>
+					<li class="library__nav-item"><a href="#"><span class="fa fa-search"></span> Search</a></li>
+				</ul>
+
+				<h1 class="library__title">Library</h1>
+			</div>
+
+			<div class="library__artists">
+				<ul class="library__list">
+					{{#if likedArtists.count}}
+						{{#each likedArtists}}
+							<li class="library__list-item">
+								<a href="#" class="library__list-item-link">
+									<h2 class="library__list-item-title">{{profile.name}}</h2>
+								</a>
+								
+								<ul class="library__artist-shows">
+				
+									{{#each shows _id}}
+										{{> showTemplate}}
+									{{/each}}
+
+								</ul><!-- end artist shows -->
+
+							</li><!-- end artist list item -->
+						{{/each}}
+
+					{{else}}
+
+						<p class="library__copy">Any show you upvote gets added to your library automatically. <a href="/explore">Go explore shows</a>.</p>
+
+					{{/if}}
+
+				</ul><!-- end artists list -->
+			</div>
+		</div><!-- end library -->
+	</div><!-- end page -->
 </template>
