@@ -3,10 +3,7 @@
 		<div class="explore container">
 			<div class="explore__header">
 				<div class="explore__left">
-					<ul class="explore__nav">
-						<li class="explore__nav-item is-active"><a href="{{pathFor 'exploreArtists'}}">Artists</a></li>
-						<li class="explore__nav-item"><a href="{{pathFor 'exploreShows'}}">Shows</a></li>
-					</ul>
+					<h1 class="explore__title">Explore</h1>
 
 					<div class="explore__filter">
 						<div class="explore__filter-title">
@@ -22,7 +19,10 @@
 					</div><!-- end explore filter -->
 				</div>
 
-				<h1 class="explore__title">Explore</h1>
+				<ul class="explore__nav">
+					<li class="explore__nav-item is-active"><a href="{{pathFor 'exploreArtists'}}">Artists</a></li>
+					<li class="explore__nav-item"><a href="{{pathFor 'exploreShows'}}">Shows</a></li>
+				</ul>
 			</div><!-- end header -->
 
 			<div class="explore__content">

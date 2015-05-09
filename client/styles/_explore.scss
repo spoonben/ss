@@ -1,14 +1,16 @@
 .explore {
-	@extend .library;
+	margin-top: 30px;
+	padding-bottom: 45px;
 }
 
 .explore__header {
 	@include full;
+	margin-bottom: 9px;
 }
 
 .explore__nav	{
 	@extend .library__nav;
-	float: none;
+	float: right;
 }
 
 .explore__nav-item {
@@ -23,7 +25,8 @@
 }
 .explore__filter {
 	float: left;
-	margin-top: 12px
+	margin-top: 14px;
+	margin-left: 6px;
 }
 
 .explore__filter-title {
@@ -176,7 +179,3 @@
 		font-size: 16px;
 	}
 }
-
-
-
-

@@ -1,0 +1,28 @@
+<template name="searchTemplate">
+  <div class="page">
+    <div class="search container">
+      <div class="search__header">
+          {{> esInput index="shows" placeholder="Type to search" class="search__input"}}
+      </div>
+
+      {{#ifEsIsSearching index="shows"}}
+        <div class="search__loading">
+          {{> spinner}}
+        </div>
+      {{else}}
+          <div class="search__results">
+          <ul>
+            {{#esEach index="shows"}}
+                {{> showTemplate}}
+            {{/esEach}}
+          </ul>
+          </div>
+
+      {{/ifEsIsSearching}}
+
+      {{#ifEsHasNoResults index="shows"}}
+          <div class="search__notfound">No results found!</div>
+      {{/ifEsHasNoResults}}
+    </div>
+  </div>
+</template>

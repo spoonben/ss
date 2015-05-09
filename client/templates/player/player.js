@@ -65,7 +65,7 @@ Template.player.rendered = function() {
 		} else {
 			$('.player__current-time').html('0:00');
 			$('.player__progressbar').css('width', '0px');
-			// window.clearInterval(window.updateTimer);
+			window.clearInterval(window.updateTimer);
 		}
 	}
 

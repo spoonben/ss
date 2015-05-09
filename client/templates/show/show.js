@@ -25,6 +25,8 @@ Template.showTemplate.events({
 		$('.player__show-date').text(this.date);
 		$('.player__info').fadeIn();
 		$('.player__count').fadeIn();
+		$('.controls__play-icon').html('<use xlink:href="#shape-play"></use>');
+		$('.controls__play').fadeIn();
 		$('.player__progress').show();
 
 		//increment play count by one
