@@ -1,6 +1,6 @@
 Template.player.rendered = function() {
 	var playerAudio = document.getElementById('player__audio');
-
+	window.updateTimer;
 	//PLAY AND PAUSE 
 
 	$('.controls__play').on('click', function(){
@@ -12,16 +12,17 @@ Template.player.rendered = function() {
 	function playOrPause() {
 		if(!playerAudio.paused && !playerAudio.ended) {
 			playerAudio.pause();
-			window.clearInterval(updateTimer);
+			window.clearInterval(window.updateTimer);
 			$('.controls__play-icon').html('<use xlink:href="#shape-play"></use>');
 		} else {
 			playerAudio.play();
-			var updateTimer = setInterval(updateTrackTime, 500);
+		  window.updateTimer = window.setInterval(updateTrackTime, 500);
 			$('.controls__play-icon').html('<use xlink:href="#shape-pause"></use>');
 		}
 	}
 
 	$('#player__audio').bind('ended', function(){
+		window.clearInterval(window.updateTimer);
 		$('.controls__play-icon').html('<use xlink:href="#shape-play"></use>');
 	});
 
@@ -64,7 +65,7 @@ Template.player.rendered = function() {
 		} else {
 			$('.player__current-time').html('0:00');
 			$('.player__progressbar').css('width', '0px');
-			window.clearInterval(updateTimer);
+			// window.clearInterval(window.updateTimer);
 		}
 	}
 
@@ -74,13 +75,13 @@ Template.player.rendered = function() {
 		var mouseX = e.pageX - $(this).offset().left;
 		var newTime = mouseX*playerAudio.duration/barBg;
 
-		if(!playerAudio.ended) {
-			playerAudio.currentTime = newTime;
+		
+		playerAudio.currentTime = newTime;
 
-			$('.player__progressbar').css('width', mouseX + 'px');
-		} else {
-			window.clearInterval(updateTimer);
-		}
+		$('.player__progressbar').css('width', mouseX + 'px');
+
+		$('.player__current-time').text($('.player__progress-time').text());
+		
 	});
 
 
