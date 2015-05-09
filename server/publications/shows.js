@@ -5,7 +5,11 @@ Meteor.publish('show', function(showId) {
 });
 
 Meteor.publish('shows', function(){
-	return Shows.find({});
+	return Shows.find({}, { sort: { score: -1 } });
+});
+
+Meteor.publish('showsPlays', function() {
+	return Shows.find({}, { sort: { plays: -1 } });
 });
 
 Meteor.publish('likedShows', function() {

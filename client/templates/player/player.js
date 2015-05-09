@@ -21,6 +21,10 @@ Template.player.rendered = function() {
 		}
 	}
 
+	$('#player__audio').bind('ended', function(){
+		$('.controls__play-icon').html('<use xlink:href="#shape-play"></use>');
+	});
+
 	//MUTE & UNMUTE
 
 	$('.player__volume-square').on('click', function(){

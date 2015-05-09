@@ -90,7 +90,7 @@
 }
 
 .library__list-item-title {
-	float: left;
+	text-align: center;
 	@include boxsize;
 	color: $p;
 }
