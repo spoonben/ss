@@ -1,3 +1,7 @@
 <template name="profileFollowBtn">
-	<a href="#" class="artist__follow">Follow</a>	
+	{{#if isFollowing}}
+		<a href="#" class="artist__follow">Following</a>
+	{{else}}
+		<a href="#" class="artist__follow">Follow</a>	
+	{{/if}}
 </template>

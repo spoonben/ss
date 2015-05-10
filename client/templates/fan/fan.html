@@ -1,0 +1,40 @@
+<template name="fanTemplate">
+	<div class="page">
+		<div class="artist container">
+			<div class="artist__header">
+				<div class="artist__header-info">
+					<h1 class="artist__name">{{profile.name}}</h1>
+					{{>yield "follow-button"}}
+					
+				</div>
+			</div><!-- end artist header  -->
+			<div class="artist__main">
+				<div class="artist__sidebar">
+					<div class="artist__photo" style="background-image: url('{{profile.picture}}');">
+						{{>yield "change-profPic"}}
+					</div>
+
+					<ul class="artist__stats">
+						<li class="artist__stats-item">
+							<div class="artist__stats-title">Followers</div>
+							<span class="artist__stats-followers">45</span>
+						</li>
+
+						<li class="artist__stats-item">
+							<div class="artist__stats-title">Following</div>
+							<span class="artist__stats-following">112</span>
+						</li>
+					</ul>
+
+					<p class="artist__bio">this is where a mini artist bio would go. kerploosh. anything the artist wants really. punk aint dead.</p>
+				</div><!-- end artists sidebar -->
+
+				<div class="artist__shows">
+					<p>Fan favorites coming soon!</p>
+
+				</div><!-- end artist shows -->
+			</div><!-- end artist main -->
+		</div><!-- end artist -->
+	</div> <!-- end page -->
+
+</template>

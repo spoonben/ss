@@ -39,13 +39,3 @@ Template.showTemplate.events({
 		Meteor.call('upvote', this._id);
 	}
 });
-
-Template.showTemplate.rendered = function() {
-	// $(window).on('resize', function() {
- //  	var picWidth = $('.artist__photo').width();
- //  	var showWidth = $('.show').width();
-
- //  	$('.artist__photo').css('height', picWidth + 'px');
- //    $('.show').css({'height':showWidth+'px'});
- //  }).resize();
-};

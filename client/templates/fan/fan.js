@@ -1,15 +1,7 @@
 var profPicUrl;
 
-//helpers
-Template.artistTemplate.helpers({
-	shows: function() {
-		var currentArtist = Router.current().params.userName;
-		return Shows.find({artist: currentArtist});
-	}
-});
-
 //events
-Template.artistTemplate.events({
+Template.fanTemplate.events({
 	'change #profile-photo-input': function() {
 		var profPicUploader = new Slingshot.Upload('profPicUpload');
 
@@ -22,11 +14,11 @@ Template.artistTemplate.events({
 		    Meteor.call('changeProfPic', downloadUrl);
 		  }
 		});
-	}
+	}	
 });
 
 //jquery after render
-Template.artistTemplate.rendered = function() {
+Template.fanTemplate.rendered = function() {
 	$(window).on('resize', function() {
   	var picWidth = $('.artist__photo').width();
   	$('.artist__photo').css('height', picWidth + 'px');
