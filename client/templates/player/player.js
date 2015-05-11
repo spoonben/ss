@@ -40,13 +40,33 @@ Template.player.rendered = function() {
 
 	//DISPLAY TIME OF SONG PLAYED
 	playerAudio.addEventListener('loadedmetadata', function() {
-		var minutes = Math.floor(playerAudio.duration/60);
-		var seconds = Math.floor(playerAudio.duration%60);
+		var seconds = playerAudio.duration;
+		var duration = moment.duration(seconds, 'seconds');
 
-		$('.player__duration').html(minutes + ':' + seconds);
+		var time = '';
+		var hours = duration.hours();
+
+		if (hours > 0) {
+			time = hours + ':';
+		}
+
+		time = time + duration.minutes() + ':' + duration.seconds();
+
+		$('.player__duration').html(time);
+
 	});
 	
 	function updateTrackTime() {
+		var playedSeconds = playerAudio.currentTime;
+		var duration = moment.duration(playedSeconds, 'seconds');
+
+		var time = '';
+		var hours = duration.hours();
+
+		if (hours > 0) {
+			time = hours + ':';
+		}		
+
 		var playedMinutes = parseInt(playerAudio.currentTime/60);
 		var playedSeconds = parseInt(playerAudio.currentTime%60);
 		var barBg = $(window).width();
@@ -59,6 +79,8 @@ Template.player.rendered = function() {
 			} else {
 				$('.player__current-time').html(playedMinutes + ':' + playedSeconds);
 			}
+
+
 			//Progress Bar
 			$('.player__progressbar').css('width', barSize + 'px');
 
