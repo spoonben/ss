@@ -17,10 +17,24 @@
 	height: 60px;
 	border-bottom: 2px solid darken($bg, 10%);
 	position: relative;
+
+	a {
+		width: 100%;
+		height: 100%;
+
+		&:hover {
+			background: $p;
+
+			.feed__message,
+			.feed__date {
+				color: $s;
+			}
+		}
+	}
 }
 
 .feed__message {
-	left: 0;
+	left: 10px;
 	position: absolute;
 	top: 20px;
 	color: $p;
@@ -35,7 +49,8 @@
 }
 
 .feed__date {
-	right: 0;
+	right: 10px;
 	position: absolute;
 	top: 20px;
+	color: $p;
 }

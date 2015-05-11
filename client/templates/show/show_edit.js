@@ -16,7 +16,7 @@ Template.editShow.events({
 				if(err) {
 					alert(err.reason);
 				} else {
-					Router.go('artist', { artistName: Meteor.user().username });
+					Router.go('artist', { userName: Meteor.user().username });
 				}
 			});
 		}
@@ -49,7 +49,7 @@ Template.editShow.events({
 			if(err) {
 				alert(err.reason);
 			} else {
-				Router.go('artist', {artistName: Meteor.user().username });
+				Router.go('artist', {userName: Meteor.user().username });
 			}
 		});
 	},

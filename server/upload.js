@@ -21,6 +21,9 @@ Meteor.methods({
 			score: 0,
       upvoters: []
 		});
+
+    //call the upload notification
+    createUploadNotification(Meteor.userId());
 	},
 
   changeProfPic: function(imageUrl) {

@@ -6,11 +6,23 @@
 			</div>
 			<ul class="feed__list">
 				{{#each notification}}
-					<li class="feed__list-item">
-						<span class="feed__message"><span class="feed__message-bold">{{followerName}}</span> followed you</span>
-						<span class="feed__date">{{timeAgo}}</span>
-					</li>
+					{{#if followerId}}
+						<li class="feed__list-item">
+							<a href="{{role}}/{{followerUsername}}">
+								<span class="feed__message"><span class="feed__message-bold">{{followerName}}</span> followed you</span>
+								<span class="feed__date">{{timeAgo}}</span>
+							</a>
+						</li>
+					{{/if}}
 
+					{{#if artistId}}
+						<li class="feed__list-item">
+							<a href="/artist/{{artistUsername}}">
+								<span class="feed__message"><span class="feed__message-bold">{{artistName}}</span> uploaded a new set</span>
+								<span class="feed__date">{{timeAgo}}</span>
+							</a>
+						</li>
+					{{/if}}
 				{{else}}
 					<p class="feed__copy">Stay up to date with the people you follow here. </p>
 				{{/each}}

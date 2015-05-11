@@ -1,6 +1,6 @@
 Template.feedTemplate.helpers({
 	notification: function() {
-		return Notifications.find({ownerId: Meteor.userId()});
+		return Notifications.find({ownerId: Meteor.userId()}, { sort: { created: -1 } });
 	},
 
 	timeAgo: function() {
