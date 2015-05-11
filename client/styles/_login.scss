@@ -241,6 +241,12 @@
 .join__copy {
 	text-align: center;
 	margin-bottom: 20px;
+	a {
+		color: $s;
+		&:hover {
+			color: darken($s, 15%);
+		}
+	}
 }
 
 .join__form {

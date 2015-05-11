@@ -2,6 +2,13 @@ Template.showTemplate.helpers({
 	//checks if the current user owns this show or not
 	usersShow: function() {
 		return Meteor.user().username === this.artist;
+	},
+
+	upvotedClass: function() {
+		var currentUser = Meteor.user();
+		if (_.contains(currentUser.profile.upvotes, this._id)) {
+			return 'upvoted';
+		}
 	}
 });
 

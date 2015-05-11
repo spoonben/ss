@@ -189,6 +189,10 @@
 	&:hover {
 		color: $s;
 	}
+
+	&.upvoted {
+		color: $s;
+	}
 }
 
 .show__actions-vote--down {
