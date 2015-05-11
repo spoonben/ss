@@ -1,0 +1,41 @@
+.feed {
+	margin-top: 25px;
+}
+
+.feed__header {
+	@include full;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.feed__list {
+	@include full;
+}
+
+.feed__list-item {
+	@include full;
+	height: 60px;
+	border-bottom: 2px solid darken($bg, 10%);
+	position: relative;
+}
+
+.feed__message {
+	left: 0;
+	position: absolute;
+	top: 20px;
+	color: $p;
+
+	.feed__message-bold {
+		font-weight: bold;
+		text-transform: uppercase;
+		font-family: $f1;
+		letter-spacing: 1px;
+		display: inline;
+	}
+}
+
+.feed__date {
+	right: 0;
+	position: absolute;
+	top: 20px;
+}

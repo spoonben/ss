@@ -37,6 +37,7 @@
 	float: left;
 	margin-left: 20px; 
 	text-align: center;
+	position: relative;
 	&:first-of-type {
 		margin-left: 0;
 	}
@@ -46,6 +47,19 @@
 			display: block;
 		}
 	}
+}
+
+.header__notifications {
+  position: absolute;
+  background: $s;
+  left: 22px;
+  top: 22px;
+  font-weight: bold;
+  color: $p;
+  font-size: 10px;
+  font-family: $f1;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .header__nav-link {

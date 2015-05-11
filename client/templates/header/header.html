@@ -31,17 +31,6 @@
 				</li>
 
 				<li class="header__nav-item">
-					<a href="{{pathFor 'feed'}}" class="header__nav-link">
-						<svg class="header__nav-icon">
-							<use xlink:href="#shape-feed" />
-						</svg>
-						<span class="header__nav-tt">
-							<span class="header__nav-tt-inner">Feed</span>
-						</span>
-					</a>
-				</li>
-
-				<li class="header__nav-item">
 					
 						<a href="
 						{{#if isInRole 'Artist'}}
@@ -61,6 +50,20 @@
 						</span>
 					</a>
 				</li>
+
+				<li class="header__nav-item" id="header-nav-feed">
+					<a href="{{pathFor 'feed'}}" class="header__nav-link">
+						<svg class="header__nav-icon">
+							<use xlink:href="#shape-feed" />
+						</svg>
+						<span class="header__nav-tt">
+							<span class="header__nav-tt-inner">Feed</span>
+						</span>
+						{{#if notificationCount}}
+							<span class="header__notifications">{{notificationCount}}</span>
+						{{/if}}
+					</a>
+				</li>
 				
 				<li class="header__nav-item">
 					<div class="header__nav-link header__nav-more">
@@ -70,8 +73,8 @@
 						<div class="header__nav-submenu">
 							<ul class="header__nav-submenu-list">
 								<li><a href="#setttings">Settings</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">About</a></li>
+								<!-- <li><a href="#">Blog</a></li>
+								<li><a href="#">About</a></li> -->
 								<li><a id="signout" href="#">Sign Out</a></li>
 							</ul>
 						</div>

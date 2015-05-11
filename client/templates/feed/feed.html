@@ -1,3 +1,20 @@
 <template name="feedTemplate">
-	<p>This is the Feed Template</p>
+	<div class="page">
+		<div class="feed container">
+			<div class="feed__header">
+				<h1 class="feed__header-title">Feed</h1>
+			</div>
+			<ul class="feed__list">
+				{{#each notification}}
+					<li class="feed__list-item">
+						<span class="feed__message"><span class="feed__message-bold">{{followerName}}</span> followed you</span>
+						<span class="feed__date">{{timeAgo}}</span>
+					</li>
+
+				{{else}}
+					<p class="feed__copy">Stay up to date with the people you follow here. </p>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
 </template>
