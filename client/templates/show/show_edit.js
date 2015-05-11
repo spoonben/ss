@@ -49,6 +49,7 @@ Template.editShow.events({
 			if(err) {
 				alert(err.reason);
 			} else {
+				Meteor.users.update(Meteor.userId(), {$inc: { 'profile.showsCount': -1 } });
 				Router.go('artist', {userName: Meteor.user().username });
 			}
 		});

@@ -24,6 +24,9 @@ Meteor.methods({
 
     //call the upload notification
     createUploadNotification(Meteor.userId());
+
+    //increment user's show count by 1
+    Meteor.users.update(Meteor.userId, { $inc: { 'profile.showsCount': 1 }});
 	},
 
   changeProfPic: function(imageUrl) {

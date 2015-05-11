@@ -5,6 +5,21 @@ Template.artistTemplate.helpers({
 	shows: function() {
 		var currentArtist = Router.current().params.userName;
 		return Shows.find({artist: currentArtist});
+	},
+
+	showsCount: function() {
+		var currentArtist = Router.current().params.userName;
+		return Meteor.users.findOne({username: currentArtist}).profile.showsCount;
+	},
+
+	followersCount: function() {
+		var currentArtist = Router.current().params.userName;
+		return Meteor.users.findOne({username: currentArtist}).profile.followersCount;
+	},
+
+	followingCount: function() {
+		var currentArtist = Router.current().params.userName;
+		return Meteor.users.findOne({username: currentArtist}).profile.followingCount;
 	}
 });
 

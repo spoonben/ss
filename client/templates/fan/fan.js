@@ -1,5 +1,18 @@
 var profPicUrl;
 
+//helpers
+Template.fanTemplate.helpers({
+	followersCount: function() {
+		var currentArtist = Router.current().params.userName;
+		return Meteor.users.findOne({username: currentArtist}).profile.followersCount;
+	},
+
+	followingCount: function() {
+		var currentArtist = Router.current().params.userName;
+		return Meteor.users.findOne({username: currentArtist}).profile.followingCount;
+	}
+});
+
 //events
 Template.fanTemplate.events({
 	'change #profile-photo-input': function() {

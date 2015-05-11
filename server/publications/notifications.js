@@ -1,3 +1,3 @@
 Meteor.publish('notifications', function() {
-  return Notifications.find();
+  return Notifications.find({ownerId: this.userId});
 });
