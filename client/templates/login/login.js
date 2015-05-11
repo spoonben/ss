@@ -22,16 +22,16 @@ Template.login.events({
 	},
 
 	//shows the Join forms
-	'click .login__join-list-item.fan': function() {
+	'click #register-fan': function() {
 		$('.join__fan').fadeIn();
+	},
+
+	'click #register-artist': function() {
+		$('.join__artist').fadeIn();
 	},
 
 	'click .join__fan-close': function() {
 		$('.join__fan').fadeOut();
-	},
-
-	'click .login__join-list-item.artist': function() {
-		$('.join__artist').fadeIn();
 	},
 
 	'click .join__artist-close': function() {

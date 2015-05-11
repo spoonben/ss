@@ -98,6 +98,12 @@ Meteor.methods({
 
 			createFollowingNotification(followedUser._id);
 		}
+	},
+
+	deleteUser: function(userId) {
+		check(userId, String);
+		
+		Meteor.users.remove({_id: userId});
 	}
 
 

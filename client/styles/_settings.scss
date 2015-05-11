@@ -1,0 +1,108 @@
+.settings {
+	margin-top: 30px;
+}
+
+.settings {
+	padding-bottom: 50px;
+	margin-top: 30px;
+}
+
+
+.settings__title {
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+.settings__item {
+	margin-bottom: 20px;
+}
+
+.settings__subtitle {
+	font-size: 24px;
+	margin-bottom: 5px;
+}
+
+.settings__form {
+	input[type="text"] {
+		display: block;
+		width: 100%;
+		border: 1px solid darken($bg, 15%);
+		border-radius: $border-radius;
+		padding: 10px 6px;
+		font-size: 16px;
+		color: $p;
+		font-family: $f2;
+	}
+
+	input[type="submit"] {
+		width: 100%;
+		display: block;
+		background: $p;
+		padding: 10px 6px;
+		text-align: center;
+		color: $w;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-family: $f1;
+		font-size: 16px;
+		border: none;
+		border-radius: $border-radius;
+		cursor: pointer;
+		transition: background-color $t-time;
+
+		&:hover {
+			background-color: $s;
+			color: $p;
+		}
+	}
+
+	input[type="file"] {
+		font-size: 16px;
+		font-family: $f2;
+	}
+
+	textarea{
+		width: 100%;
+		height: 200px;
+		border: 1px solid darken($bg, 15%);
+		border-radius: $border-radius;
+		padding: 10px 6px;
+		font-size: 16px;
+		color: $p;
+		font-family: $f2;
+	}
+}
+
+.settings__price {
+	position: relative;
+
+	span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 25px;
+		height: 41px;
+		padding-top: 14px;
+		padding-left: 8px;
+		border-radius: $border-radius;
+		background: $s;
+		color: $p;
+		font-family: $f1;
+	}
+
+	input[type="text"] {
+		padding-left: 32px;
+	}
+}
+
+.settings__deleteBtn {
+	margin-top: 10px;
+	color: $alert;
+	font-family: $f1;
+	float: right;
+	font-size: 14px;
+
+	&:hover {
+		color: darken($alert, 15%);
+	}
+}
