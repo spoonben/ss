@@ -39,7 +39,7 @@ Template.uploadShow.events({
 	'submit .upload__form': function(e,t) {
 		e.preventDefault();
 
-		var artistName = Meteor.user().username;
+		var artistName = Router.current().params.userName;
 		var artistDisplay = Meteor.user().profile.name;
 		var venueName = t.find('#upload-show-venue').value;
 		var showDate = t.find('#upload-show-date').value;

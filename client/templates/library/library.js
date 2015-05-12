@@ -2,7 +2,7 @@ Template.libraryTemplate.helpers({
 	likedArtists: function() {
 		var upvotedArtists = Meteor.user().profile.likedArtists;
 
-		return Meteor.users.find( { _id : { $in : upvotedArtists } } );
+		return Meteor.users.find( { _id : { $in : upvotedArtists } }, { sort: {'profile.name': 1} } );
 	},
 
 	shows: function(artistName) {
