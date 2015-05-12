@@ -26,6 +26,10 @@ Template.login.events({
 		$('.join__fan').fadeIn();
 	},
 
+	'click .login__content-copy-join': function() {
+		$('.join__fan').fadeIn();
+	},
+
 	'click #register-artist': function() {
 		$('.join__artist').fadeIn();
 	},
